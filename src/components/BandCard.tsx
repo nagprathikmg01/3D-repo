@@ -11,9 +11,11 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 
 const GLTF_PATH = "/assets/cards.glb";
 const TEXTURE_PATH = "/assets/new.jpeg";
+const CARD_TEXTURE_PATH = "/assets/prince.png";
 
 useGLTF.preload(GLTF_PATH);
 useTexture.preload(TEXTURE_PATH);
+useTexture.preload(CARD_TEXTURE_PATH);
 
 function CursorLight() {
   const lightRef = useRef<THREE.PointLight>(null);
@@ -117,6 +119,9 @@ function Band({
   const texture = useTexture(TEXTURE_PATH);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
+
+  const cardTexture = useTexture(CARD_TEXTURE_PATH);
+  cardTexture.flipY = false;
 
   const { width, height } = useThree((state) => state.size);
   const [curve] = useState(
@@ -248,6 +253,7 @@ function Band({
               <mesh geometry={nodes.card.geometry}>
                 <meshPhysicalMaterial
                   {...materials.base}
+                  map={cardTexture}
                   roughness={0.35}
                   metalness={0.1}
                   clearcoat={1}
