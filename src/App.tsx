@@ -11,7 +11,7 @@ import ContactSection from "@/components/ContactSection";
 import About from "./pages/About";
 import ParticleBackground from "@/components/ParticleBackground";
 
-const logos = ["PRATHIK", "WEBKAIZEN", "FRONTEND", "DEVELOPER"];
+const logos = ["AI/ML ENGINEER", "FULL-STACK DEVELOPER", "CLOUD & DEVOPS", "GOOGLE STUDENT AMBASSADOR"];
 
 export default function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -147,7 +147,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <img src="/favicon.svg" alt="Logo" className="w-8 h-8 rounded-full object-cover" />
                 <span className="text-[10px] md:text-xs tracking-[0.3em] text-white/70 uppercase font-medium">
-                  PRATHIKWEBKAIZEN
+                  PRATHIK
                 </span>
               </div>
 
