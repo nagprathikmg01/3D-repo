@@ -33,12 +33,9 @@ export default function EducationSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[100px]" />
-      </div>
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
+      {/* Background Glow - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -47,7 +44,7 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#B5654A] font-bold"
           >
             My Education
           </motion.p>
@@ -60,7 +57,7 @@ export default function EducationSection() {
           >
             Academic Foundation
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue to-secondaryPurple mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -73,23 +70,23 @@ export default function EducationSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className={`rounded-2xl border transition-all duration-300 backdrop-blur-md flex flex-col justify-between p-8 relative overflow-hidden ${
+                className={`rounded-[3px] border transition-all duration-300 backdrop-blur-md flex flex-col justify-between p-8 relative overflow-hidden ${
                   edu.featured
-                    ? "lg:col-span-6 border-primaryBlue/30 bg-white dark:bg-[#0a1a0d]/80 shadow-[0_10px_30px_rgba(16,185,129,0.08)] dark:shadow-[0_10px_30px_rgba(16,185,129,0.03)]"
-                    : "lg:col-span-3 border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#0a1a0d]/40 hover:border-slate-300 dark:hover:border-slate-800"
+                    ? "lg:col-span-6 border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A]"
+                    : "lg:col-span-3 border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A]"
                 }`}
               >
                 {/* Accent Top Bar for featured */}
                 {edu.featured && (
-                  <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primaryBlue to-secondaryPurple" />
+                  <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#B5654A]" />
                 )}
 
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${edu.accent} text-white shadow-lg`}>
+                    <div className="w-12 h-12 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#EDEDE8]">
                       <GraduationCap size={24} />
                     </div>
-                    <span className="text-[10px] font-mono text-slate-400 dark:text-white/40 uppercase tracking-widest bg-slate-100 dark:bg-white/5 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-mono text-[#9C9C94] uppercase tracking-widest bg-[#2E3039] border border-[#2A2C33] px-2.5 py-1 rounded-[3px]">
                       {edu.duration}
                     </span>
                   </div>
@@ -100,20 +97,20 @@ export default function EducationSection() {
                     {edu.institution}
                   </h3>
 
-                  <p className="text-sm font-semibold text-primaryBlue tracking-wide mb-4">
+                  <p className="text-sm font-semibold text-[#B5654A] tracking-wide mb-4">
                     {edu.degree}
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-6 border-t border-slate-100 dark:border-white/5">
-                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                <div className="space-y-4 pt-6 border-t border-[#2A2C33]">
+                  <div className="flex items-center gap-2 text-xs text-[#9C9C94]">
                     <MapPin size={14} />
                     <span>{edu.location}</span>
                   </div>
 
-                  <div className="flex items-center gap-2.5 bg-slate-100 dark:bg-white/5 rounded-xl px-4 py-3 border border-slate-200/50 dark:border-white/[0.03]">
-                    <Award size={16} className="text-secondaryPurple shrink-0" />
-                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <div className="flex items-center gap-2.5 bg-[#2E3039] rounded-[3px] px-4 py-3 border border-[#2A2C33]">
+                    <Award size={16} className="text-[#B5654A] shrink-0" />
+                    <span className="text-sm font-bold text-[#EDEDE8]">
                       {edu.score}
                     </span>
                   </div>

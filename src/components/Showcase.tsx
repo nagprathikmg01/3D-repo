@@ -122,41 +122,17 @@ export default function Showcase() {
 
   // Styling helper for project types
   const getTypeStyles = (type: string) => {
-    switch (type) {
-      case "AI/ML":
-        return {
-          badge: "border-sky-500/30 text-sky-600 dark:text-sky-400 bg-sky-500/8",
-          border: "border-sky-500/20 dark:border-sky-500/15 hover:border-sky-500/60 dark:hover:border-sky-500/40",
-          accent: "#0ea5e9",
-        };
-      case "Full-Stack":
-        return {
-          badge: "border-teal-500/30 text-teal-600 dark:text-teal-400 bg-teal-500/8",
-          border: "border-teal-500/20 dark:border-teal-500/15 hover:border-teal-500/60 dark:hover:border-teal-500/40",
-          accent: "#0d9488",
-        };
-      case "Cloud":
-        return {
-          badge: "border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/8",
-          border: "border-amber-500/20 dark:border-amber-500/15 hover:border-amber-500/60 dark:hover:border-amber-500/40",
-          accent: "#f59e0b",
-        };
-      default:
-        return {
-          badge: "border-slate-500/20 text-slate-400 bg-slate-500/5",
-          border: "border-slate-200 dark:border-surfaceBorder hover:border-primaryBlue",
-          accent: "#0ea5e9",
-        };
-    }
+    return {
+      badge: "border-[#2A2C33] text-[#9C9C94] bg-[#2E3039]",
+      border: "border-[#2A2C33] hover:border-[#B5654A]",
+      accent: "#B5654A",
+    };
   };
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-sky-500/6 rounded-full blur-[160px]" />
-        <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[160px]" />
-      </div>
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
+      {/* Background Glow - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12">
@@ -178,7 +154,7 @@ export default function Showcase() {
           >
             Portfolio Showcase
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         {/* Filter Tabs */}
@@ -187,10 +163,10 @@ export default function Showcase() {
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-6 py-2.5 rounded-xl text-xs uppercase font-mono tracking-widest border transition-all duration-300 font-bold ${
+              className={`px-6 py-2.5 rounded-[3px] text-xs uppercase font-mono tracking-widest border transition-all duration-300 font-bold ${
                 filter === tab
-                  ? "bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white border-transparent shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                  : "bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-primaryBlue/40 dark:hover:border-primaryBlue/30"
+                  ? "bg-[#B5654A] text-[#EDEDE8] border-transparent"
+                  : "bg-[#22242D] border-[#2A2C33] text-[#9C9C94] hover:text-[#EDEDE8] hover:border-[#B5654A]"
               }`}
             >
               {tab}
@@ -215,24 +191,20 @@ export default function Showcase() {
                   exit={{ opacity: 0, scale: 0.95, y: 30 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.07 }}
                 >
-                  <TiltCard className={`rounded-2xl border bg-slate-50/50 dark:bg-surface/50 p-6 flex flex-col justify-between backdrop-blur-md relative group overflow-hidden h-full ${styles.border} transition-all duration-300`}>
+                  <TiltCard className={`rounded-[3px] border bg-[#22242D] p-6 flex flex-col justify-between backdrop-blur-md relative group overflow-hidden h-full ${styles.border} transition-all duration-300`}>
                     {/* Accent top bar */}
                     <div
-                      className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl"
-                      style={{ background: `linear-gradient(90deg, transparent, ${styles.accent}50, transparent)` }}
+                      className="absolute top-0 left-0 right-0 h-[2px] bg-[#B5654A]/30"
                     />
-
-                    {/* Holographic Shimmer Sweep */}
-                    <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
 
                     {/* Header / Badges */}
                     <div>
                       <div className="flex justify-between items-start gap-4 mb-4">
-                        <span className={`px-2.5 py-1 rounded-lg text-[10px] font-mono tracking-wider font-bold uppercase border ${styles.badge}`}>
+                        <span className={`px-2.5 py-1 rounded-[3px] text-[10px] font-mono tracking-wider font-bold uppercase border ${styles.badge}`}>
                           {project.type}
                         </span>
                         {project.finalYear && (
-                          <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono tracking-wider font-bold uppercase border border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/8 animate-pulse">
+                          <span className="px-2.5 py-1 rounded-[3px] text-[10px] font-mono tracking-wider font-bold uppercase border border-[#2A2C33] text-[#9C9C94] bg-[#2E3039]">
                             Final Year Project
                           </span>
                         )}
@@ -252,20 +224,11 @@ export default function Showcase() {
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.tech.split("+").map((techName) => {
                           const name = techName.trim();
-                          // Brand color mapping
-                          const techColor = (() => {
-                            if (/react|next/i.test(name)) return "border-cyan-500/20 text-cyan-600 dark:text-cyan-400 bg-cyan-500/5";
-                            if (/pytorch|python/i.test(name)) return "border-orange-500/20 text-orange-600 dark:text-orange-400 bg-orange-500/5";
-                            if (/gcp|firebase|google/i.test(name)) return "border-yellow-500/20 text-yellow-600 dark:text-yellow-400 bg-yellow-500/5";
-                            if (/typescript|ts/i.test(name)) return "border-blue-500/20 text-blue-600 dark:text-blue-400 bg-blue-500/5";
-                            if (/flutter|dart/i.test(name)) return "border-sky-500/20 text-sky-600 dark:text-sky-400 bg-sky-500/5";
-                            if (/vercel|cloud/i.test(name)) return "border-slate-500/20 text-slate-600 dark:text-slate-300 bg-slate-500/5";
-                            return "border-slate-200 dark:border-white/[0.06] bg-white dark:bg-black/20 text-slate-600 dark:text-slate-400";
-                          })();
+                          const techColor = "border-[#2A2C33] text-[#9C9C94] bg-[#2E3039]";
                           return (
                             <span
                               key={name}
-                              className={`px-2.5 py-1 rounded-lg text-[10px] font-mono tracking-wider font-semibold border ${techColor}`}
+                              className={`px-2.5 py-1 rounded-[3px] text-[10px] font-mono tracking-wider font-semibold border ${techColor}`}
                             >
                               {name}
                             </span>
@@ -273,8 +236,8 @@ export default function Showcase() {
                         })}
                       </div>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-white/5">
-                        <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400 dark:text-white/30 font-mono">
+                      <div className="flex items-center justify-between pt-4 border-t border-[#2A2C33]">
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-[#9C9C94] font-mono">
                           Project Links
                         </span>
                         <div className="flex items-center gap-3">
@@ -282,7 +245,7 @@ export default function Showcase() {
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/50 hover:bg-primaryBlue hover:text-white hover:border-primaryBlue dark:hover:bg-primaryBlue dark:hover:border-primaryBlue transition-all duration-200"
+                            className="flex items-center justify-center w-8 h-8 rounded-[3px] border border-[#2A2C33] text-[#9C9C94] hover:bg-[#B5654A] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-200"
                             title="View GitHub Repository"
                           >
                             <GithubIcon size={14} />
@@ -292,7 +255,7 @@ export default function Showcase() {
                               href={project.live}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/50 hover:bg-brightTeal hover:text-white hover:border-brightTeal dark:hover:bg-brightTeal dark:hover:border-brightTeal transition-all duration-200"
+                              className="flex items-center justify-center w-8 h-8 rounded-[3px] border border-[#2A2C33] text-[#9C9C94] hover:bg-[#B5654A] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-200"
                               title="View Live Site"
                             >
                               <ExternalLink size={14} />
@@ -314,7 +277,7 @@ export default function Showcase() {
             href="https://github.com/nagprathikmg01"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-white px-8 py-4 text-xs tracking-[0.25em] uppercase font-bold hover:bg-gradient-to-r hover:from-primaryBlue hover:to-secondaryPurple hover:text-white hover:border-transparent transition-all duration-300 rounded-full hover:shadow-[0_10px_30px_rgba(16,185,129,0.3)] hover:scale-105 active:scale-98"
+            className="group inline-flex items-center gap-3 border border-[#2A2C33] bg-[#22242D] text-[#EDEDE8] px-8 py-4 text-xs tracking-[0.25em] uppercase font-bold hover:bg-[#B5654A] hover:border-[#B5654A] transition-all duration-300 rounded-[3px] active:scale-98"
           >
             Explore More on GitHub <ArrowUpRight size={14} />
           </a>

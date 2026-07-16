@@ -22,12 +22,11 @@ export default function ParticleBackground() {
     // Slow rotation of the entire field around the viewport center
     const fieldRotationSpeed = 0.0004;
 
-    // 60% sky blue, 30% deep teal, 10% amber gold
+    // 80% warm gray, 20% brick/rust
     const pickColor = () => {
       const r = Math.random();
-      if (r < 0.6) return "14, 165, 233";
-      if (r < 0.9) return "13, 148, 136";
-      return "245, 158, 11";
+      if (r < 0.8) return "156, 156, 148";
+      return "181, 101, 74";
     };
 
     interface IParticle {
@@ -95,7 +94,7 @@ export default function ParticleBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color}, 0.4)`;
+        ctx.fillStyle = `rgba(${this.color}, 0.18)`;
         ctx.fill();
       }
     }
@@ -120,7 +119,7 @@ export default function ParticleBackground() {
           const dist = Math.hypot(pi.x - pj.x, pi.y - pj.y);
 
           if (dist < connectionDist) {
-            const alpha = (1 - dist / connectionDist) * 0.15;
+            const alpha = (1 - dist / connectionDist) * 0.06;
             ctx.beginPath();
             ctx.moveTo(pi.x, pi.y);
             ctx.lineTo(pj.x, pj.y);
@@ -139,7 +138,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(14, 165, 233, ${alpha})`;
+            ctx.strokeStyle = `rgba(181, 101, 74, ${alpha * 0.4})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

@@ -52,37 +52,37 @@ export default function About() {
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; }
-body { font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif; background: #000000; padding: 20px; min-height: 100vh; overflow-x: hidden; }
+body { font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif; background: #15171C; padding: 20px; min-height: 100vh; overflow-x: hidden; }
 .container { max-width: 900px; margin: 0 auto; }
-.resume-wrapper { background: #0d0d0d; border: 1px solid #222222; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8); }
-.header { background: #000000; border-bottom: 2px solid #333333; padding: 45px 40px; display: flex; gap: 40px; align-items: flex-start; }
-.profile-photo { width: 150px; height: 150px; border-radius: 12px; border: 3px solid #444444; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); flex-shrink: 0; object-fit: cover; }
+.resume-wrapper { background: #1A1B20; border: 1px solid #2A2C33; border-radius: 3px; overflow: hidden; box-shadow: none; }
+.header { background: #15171C; border-bottom: 1px solid #2A2C33; padding: 45px 40px; display: flex; gap: 40px; align-items: flex-start; }
+.profile-photo { width: 150px; height: 150px; border-radius: 3px; border: 1px solid #2A2C33; flex-shrink: 0; object-fit: cover; }
 .header-content { flex: 1; }
-.header-content h1 { font-size: 36px; margin-bottom: 8px; font-weight: 700; color: #ffffff; }
-.header-content .title { font-size: 14px; color: #10b981; margin-bottom: 18px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.header-content h1 { font-size: 36px; margin-bottom: 8px; font-weight: 700; color: #EDEDE8; }
+.header-content .title { font-size: 14px; color: #B5654A; margin-bottom: 18px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; }
-.contact-item { display: flex; align-items: center; gap: 8px; padding: 8px; background: #111a14; border-radius: 6px; border: 1px solid #1a3320; }
-.contact-item a { color: #ffffff; text-decoration: none; word-break: break-all; }
-.content { padding: 40px; background: #0d0d0d; }
+.contact-item { display: flex; align-items: center; gap: 8px; padding: 8px; background: #2E3039; border-radius: 3px; border: 1px solid #2A2C33; }
+.contact-item a { color: #EDEDE8; text-decoration: none; word-break: break-all; }
+.content { padding: 40px; background: #1A1B20; }
 .section { margin-bottom: 35px; }
-.section-title { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #333333; text-transform: uppercase; letter-spacing: 2px; }
-.summary-text { color: #d0d0d0; line-height: 1.8; font-size: 14px; background: #1a1a1a; padding: 20px; border-left: 3px solid #555555; border-radius: 6px; border: 1px solid #2a2a2a; }
+.section-title { font-size: 18px; font-weight: 700; color: #EDEDE8; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2A2C33; text-transform: uppercase; letter-spacing: 2px; }
+.summary-text { color: #9C9C94; line-height: 1.8; font-size: 14px; background: #2E3039; padding: 20px; border-left: 3px solid #B5654A; border-radius: 3px; border: 1px solid #2A2C33; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.skill-category { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; }
-.skill-category h3 { color: #ffffff; font-size: 14px; margin-bottom: 15px; font-weight: 600; border-bottom: 1px solid #333; padding-bottom: 5px; }
+.skill-category { background: #2E3039; padding: 20px; border-radius: 3px; border: 1px solid #2A2C33; }
+.skill-category h3 { color: #EDEDE8; font-size: 14px; margin-bottom: 15px; font-weight: 600; border-bottom: 1px solid #2A2C33; padding-bottom: 5px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.skill-tag { background: #2a2a2a; color: #e0e0e0; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; border: 1px solid #3a3a3a; }
-.experience-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #10b981; margin-bottom: 15px; }
-.experience-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
-.experience-item .duration { font-size: 12px; color: #d4a017; font-weight: 500; }
-.experience-item .company { font-size: 13px; color: #b0b0b0; margin-bottom: 8px; font-style: italic; }
-.experience-item ul { margin-left: 15px; color: #d0d0d0; font-size: 13px; line-height: 1.6; }
-.project-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #d4a017; margin-bottom: 15px; }
-.project-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; margin-bottom: 5px; }
-.project-item .tech-used { font-size: 12px; color: #888888; margin-bottom: 8px; font-family: monospace; }
-.project-item ul { margin-left: 15px; color: #d0d0d0; font-size: 13px; line-height: 1.6; }
-.education-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #10b981; margin-bottom: 15px; }
-.education-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
+.skill-tag { background: #22242D; color: #9C9C94; padding: 6px 12px; border-radius: 3px; font-size: 11px; font-weight: 500; border: 1px solid #2A2C33; }
+.experience-item { background: #2E3039; padding: 18px; border-radius: 3px; border: 1px solid #2A2C33; border-left: 3px solid #B5654A; margin-bottom: 15px; }
+.experience-item h3 { color: #EDEDE8; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
+.experience-item .duration { font-size: 12px; color: #B5654A; font-weight: 500; }
+.experience-item .company { font-size: 13px; color: #9C9C94; margin-bottom: 8px; font-style: italic; }
+.experience-item ul { margin-left: 15px; color: #EDEDE8; font-size: 13px; line-height: 1.6; }
+.project-item { background: #2E3039; padding: 18px; border-radius: 3px; border: 1px solid #2A2C33; border-left: 3px solid #B5654A; margin-bottom: 15px; }
+.project-item h3 { color: #EDEDE8; font-size: 15px; font-weight: 600; margin-bottom: 5px; }
+.project-item .tech-used { font-size: 12px; color: #9C9C94; margin-bottom: 8px; font-family: monospace; }
+.project-item ul { margin-left: 15px; color: #EDEDE8; font-size: 13px; line-height: 1.6; }
+.education-item { background: #2E3039; padding: 18px; border-radius: 3px; border: 1px solid #2A2C33; border-left: 3px solid #B5654A; margin-bottom: 15px; }
+.education-item h3 { color: #EDEDE8; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
 .education-item .duration { font-size: 13px; color: #888888; font-weight: 400; }
 .education-item p { color: #b0b0b0; font-size: 13px; margin-top: 4px; }
 @media print { body { background: #000000; padding: 0; } }
@@ -292,18 +292,18 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
   };
 
   return (
-    <div className="relative min-h-screen bg-[#020805] overflow-hidden text-white px-4 sm:px-6 py-10">
+    <div className="relative min-h-screen bg-[#1A1B20] overflow-hidden text-[#EDEDE8] px-4 sm:px-6 py-10">
       {/* ANIMATED BACKGROUND EFFECTS */}
       <div className="fixed inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(156, 156, 148, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(156, 156, 148, 0.08) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
           }}
         />
-        <div className="absolute top-20 left-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" style={{ animationDelay: "2.5s" }} />
+        <div className="absolute top-20 left-10 w-80 h-80 bg-[#B5654A]/3 rounded-full blur-[120px]" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#9C9C94]/3 rounded-full blur-[120px]" />
       </div>
 
       {/* BACK BUTTON */}
@@ -318,7 +318,7 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           }
           navigate(-1);
         }}
-        className="fixed top-5 left-5 z-50 flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/8 backdrop-blur-xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg"
+        className="fixed top-5 left-5 z-50 flex items-center gap-2 px-4 py-2 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:bg-[#2E3039] hover:border-[#B5654A] text-[#EDEDE8] transition-all duration-300"
       >
         <ArrowLeft size={18} />
         <span className="hidden sm:inline">Back</span>
@@ -333,15 +333,15 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center"
         >
-          <div className="p-1 rounded-2xl bg-gradient-to-tr from-emerald-500 via-emerald-400 to-amber-500 shadow-[0_0_40px_rgba(16,185,129,0.25)]">
+          <div className="p-1 rounded-[3px] border border-[#2A2C33] bg-[#22242D]">
             <img
               src="/assets/prathik.jpeg"
               alt="Nag Prathik M G"
-              className="w-[200px] sm:w-[280px] md:w-[320px] rounded-xl object-cover"
+              className="w-[200px] sm:w-[280px] md:w-[320px] rounded-[3px] object-cover"
             />
           </div>
           {/* DIVIDER LINE */}
-          <div className="mt-6 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent w-[90vw] sm:w-[400px] md:w-[500px]" />
+          <div className="mt-6 h-[1px] bg-[#2A2C33] w-[90vw] sm:w-[400px] md:w-[500px]" />
         </motion.div>
 
         {/* GLASS BOX CONTAINER */}
@@ -349,17 +349,16 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-4xl h-[500px] sm:h-[550px] md:h-[600px] rounded-3xl border border-white/10 bg-slate-950/40 backdrop-blur-3xl overflow-hidden shadow-[0_20px_70px_rgba(0,0,0,0.5)] group"
+          className="relative w-full max-w-4xl h-[500px] sm:h-[550px] md:h-[600px] rounded-[3px] border border-[#2A2C33] bg-[#22242D] backdrop-blur-3xl overflow-hidden group"
         >
-          {/* GLASS LIGHT EFFECT */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          {/* GLASS LIGHT EFFECT - disabled */}
+          <div className="absolute inset-0 pointer-events-none" />
 
           {/* HEADER SECTION */}
-          <div className="relative z-20 flex items-center justify-center px-6 py-6 sm:py-8 border-b border-white/10 bg-black/30 backdrop-blur-2xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+          <div className="relative z-20 flex items-center justify-center px-6 py-6 sm:py-8 border-b border-[#2A2C33] bg-[#1E2026] backdrop-blur-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#EDEDE8]">
               {displayedText}
-              <span className="animate-pulse ml-2">|</span>
+              <span className="animate-pulse ml-2 text-[#B5654A]">|</span>
             </h1>
           </div>
 
@@ -393,10 +392,8 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           onMouseEnter={() => { if (typeof window !== 'undefined' && (window as any).playClickSound) (window as any).playClickSound(); }}
           onClick={handleDownload}
           disabled={downloading}
-          className="group relative overflow-hidden flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl border border-white/15 bg-white/8 backdrop-blur-xl hover:bg-white/15 hover:border-white/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.08)]"
+          className="group relative overflow-hidden flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 rounded-[3px] border border-[#2A2C33] bg-[#22242D] text-[#EDEDE8] hover:bg-[#B5654A] hover:border-[#B5654A] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
         >
-          {/* BUTTON GLOW EFFECT */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-all duration-500" />
           {/* BUTTON CONTENT */}
           <div className="relative z-10 flex items-center gap-3">
             <Download

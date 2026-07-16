@@ -42,12 +42,9 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-emerald-500/6 rounded-full blur-[110px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-amber-500/5 rounded-full blur-[110px]" />
-      </div>
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
+      {/* Background Glow - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -56,7 +53,7 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-glowIndigo font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#B5654A] font-bold"
           >
             My Journey
           </motion.p>
@@ -69,13 +66,13 @@ export default function ExperienceSection() {
           >
             Work & Leadership
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         {/* Vertical Timeline */}
         <div className="relative">
           {/* Animated Timeline Draw Line */}
-          <div className="timeline-line absolute left-6 md:left-1/2 top-2 -translate-x-[1px] animate-in" />
+          <div className="timeline-line absolute left-6 md:left-1/2 top-2 -translate-x-[1px] bg-[#2A2C33]" />
 
           {/* Timeline Nodes */}
           <div className="space-y-12">
@@ -90,11 +87,9 @@ export default function ExperienceSection() {
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Circle Node on Line with pulsing glow ring */}
-                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-emerald-500/30 dark:border-emerald-500/20 bg-white dark:bg-darkBg flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                    {/* Outer ping ring */}
-                    <span className="absolute w-8 h-8 rounded-full bg-emerald-500/10 animate-ping" style={{ animationDuration: '2.5s' }} />
-                    <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${exp.color}`} />
+                  {/* Circle Node on Line */}
+                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-[#2A2C33] bg-[#1A1B20] flex items-center justify-center -translate-x-1/2 z-10">
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#B5654A]" />
                   </div>
 
                   {/* Content Card */}
@@ -104,24 +99,24 @@ export default function ExperienceSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      whileHover={{ y: -4, shadow: `0 20px 40px ${exp.glow}` }}
-                      className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-white dark:bg-surface/50 hover:border-slate-300 dark:hover:border-slate-800 transition-all duration-300 backdrop-blur-md relative"
+                      whileHover={{ y: -4 }}
+                      className="p-6 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A] transition-all duration-300 backdrop-blur-md relative"
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${exp.color} text-white shadow-md`}>
+                        <div className="w-10 h-10 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#EDEDE8]">
                           <Icon size={18} />
                         </div>
                         <div>
                           <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white leading-tight">
                             {exp.role}
                           </h3>
-                          <p className="text-xs text-primaryBlue font-semibold mt-1">
+                          <p className="text-xs text-[#B5654A] font-semibold mt-1">
                             {exp.company}
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono mb-3">
+                      <div className="flex items-center gap-1.5 text-xs text-[#9C9C94] font-mono mb-3">
                         <Calendar size={13} />
                         <span>{exp.duration}</span>
                       </div>

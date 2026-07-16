@@ -34,13 +34,10 @@ export default function FrontendDeveloperSection() {
           : { x: 0, scale: 1, opacity: 1, filter: "blur(0px)" }
       }
       transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full min-h-screen bg-[#04080f] text-white overflow-hidden flex items-start px-6 md:px-20 pt-16 md:pt-28 select-none"
+      className="relative w-full min-h-screen bg-[#1A1B20] text-[#EDEDE8] overflow-hidden flex items-start px-6 md:px-20 pt-16 md:pt-28 select-none"
     >
-      {/* Background Floating spotlights */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px]" />
-      </div>
+      {/* Background spotlights - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       {/* TEXT */}
       <div className="relative z-10 max-w-2xl">
@@ -48,14 +45,14 @@ export default function FrontendDeveloperSection() {
           <motion.span
             animate={{ width: ["0ch", "32ch", "32ch", "0ch"] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 0.8, 1] }}
-            className="inline-block overflow-hidden whitespace-nowrap text-[11px] tracking-[0.3em] uppercase text-sky-400/80 font-mono font-bold"
+            className="inline-block overflow-hidden whitespace-nowrap text-[11px] tracking-[0.3em] uppercase text-[#B5654A]/80 font-mono font-bold"
           >
             Google Student Ambassador
           </motion.span>
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="text-sky-400 font-mono ml-[2px]"
+            className="text-[#B5654A] font-mono ml-[2px]"
           >
             |
           </motion.span>
@@ -96,11 +93,7 @@ export default function FrontendDeveloperSection() {
           className="mt-6 flex flex-wrap gap-4"
         >
           {["PyTorch", "Generative AI", "GCP / AWS", "Agentic AI"].map((tech) => {
-            let glowColor = "hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/20";
-            if (tech === "PyTorch") glowColor = "hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:border-amber-500/30 hover:text-amber-400";
-            else if (tech === "Generative AI") glowColor = "hover:shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:border-sky-500/30 hover:text-sky-400";
-            else if (tech === "GCP / AWS") glowColor = "hover:shadow-[0_0_20px_rgba(13,148,136,0.15)] hover:border-teal-500/30 hover:text-teal-400";
-            else if (tech === "Agentic AI") glowColor = "hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:border-amber-500/30 hover:text-amber-400";
+            const glowColor = "hover:border-[#B5654A] hover:text-[#EDEDE8]";
             
             return (
               <div
@@ -110,7 +103,7 @@ export default function FrontendDeveloperSection() {
                     (window as any).playClickSound();
                   }
                 }}
-                className={`relative group px-5 py-2.5 rounded-2xl text-xs font-semibold tracking-wider uppercase font-mono text-white/70 bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden transition-all duration-300 ${glowColor}`}
+                className={`relative group px-5 py-2.5 rounded-[3px] text-xs font-semibold tracking-wider uppercase font-mono text-[#9C9C94] bg-[#2E3039] border border-[#2A2C33] overflow-hidden transition-all duration-300 ${glowColor}`}
               >
                 <span className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 bg-white/5"></span>
                 <span className="relative z-10">{tech}</span>
@@ -136,7 +129,7 @@ export default function FrontendDeveloperSection() {
               }
               setShowCard((s) => !s);
             }}
-            className="inline-flex items-center gap-2 border border-cyan-500 text-cyan-400 px-6 py-3 text-xs tracking-[0.25em] uppercase font-bold hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-300 rounded-full"
+            className="inline-flex items-center gap-2 border border-[#B5654A] text-[#B5654A] px-6 py-3 text-xs tracking-[0.25em] uppercase font-bold hover:bg-[#B5654A] hover:text-[#EDEDE8] transition-all duration-300 rounded-[3px]"
           >
             {showCard ? "Hide 3D Card" : "Show 3D Card"}
           </motion.button>
@@ -157,7 +150,7 @@ export default function FrontendDeveloperSection() {
               }
               setGoAbout(true);
             }}
-            className="inline-flex items-center gap-2 border border-white/20 text-white px-6 py-3 text-xs tracking-[0.25em] uppercase font-bold hover:bg-white hover:text-black transition-all duration-300 rounded-full"
+            className="inline-flex items-center gap-2 border border-[#2A2C33] text-[#EDEDE8] bg-[#22242D] px-6 py-3 text-xs tracking-[0.25em] uppercase font-bold hover:bg-[#2E3039] hover:border-[#B5654A] transition-all duration-300 rounded-[3px]"
           >
             Detailed Bio
           </motion.button>

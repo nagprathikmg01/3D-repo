@@ -41,15 +41,15 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="relative border-t border-slate-200 dark:border-surfaceBorder bg-slate-100 dark:bg-[#04080f] py-12 px-6 md:px-12 transition-colors duration-300">
+    <footer className="relative border-t border-[#2A2C33] bg-[#1E2026] py-12 px-6 md:px-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Left Side: Copyright */}
         <div className="text-center md:text-left">
-          <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wider">
+          <h4 className="text-sm font-bold text-[#EDEDE8] tracking-wider">
             NAG PRATHIK M G
           </h4>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 font-sans">
+          <p className="text-xs text-[#9C9C94] mt-1.5 font-sans">
             &copy; {new Date().getFullYear()} &middot; Built with React + TypeScript + Vite + Tailwind
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function FooterSection() {
             href="https://github.com/nagprathikmg01"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
+            className="w-9 h-9 rounded-[3px] border border-[#2A2C33] flex items-center justify-center text-[#9C9C94] bg-[#2E3039] hover:bg-[#22242D] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-300"
           >
             <GithubIcon size={16} />
           </a>
@@ -68,13 +68,13 @@ export default function FooterSection() {
             href="https://www.linkedin.com/in/nag-prathik-m-g"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
+            className="w-9 h-9 rounded-[3px] border border-[#2A2C33] flex items-center justify-center text-[#9C9C94] bg-[#2E3039] hover:bg-[#22242D] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-300"
           >
             <LinkedinIcon size={16} />
           </a>
           <a
             href="mailto:nagprathikmg@gmail.com"
-            className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
+            className="w-9 h-9 rounded-[3px] border border-[#2A2C33] flex items-center justify-center text-[#9C9C94] bg-[#2E3039] hover:bg-[#22242D] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-300"
           >
             <Mail size={16} />
           </a>
@@ -90,7 +90,7 @@ export default function FooterSection() {
             exit={{ opacity: 0, scale: 0.5, y: 30 }}
             transition={{ duration: 0.3 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-40 w-11 h-11 rounded-full bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white flex items-center justify-center shadow-lg hover:shadow-primaryBlue/35 hover:scale-108 active:scale-95 transition-all duration-300 border border-white/10"
+            className="fixed bottom-8 right-8 z-40 w-11 h-11 rounded-[3px] bg-[#B5654A] text-[#EDEDE8] flex items-center justify-center transition-all duration-300 border border-transparent active:scale-95"
             title="Back to Top"
           >
             <ArrowUp size={18} />

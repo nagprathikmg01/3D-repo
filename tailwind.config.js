@@ -9,19 +9,19 @@ export default {
     extend: {
       colors: {
         // Electric Blue / Purple / Cyan palette
-        darkBg: "#04080f",          // deep space black
-        surface: "#080f1a",         // dark navy surface
-        surfaceCard: "#0d1520",     // card background
-        surfaceBorder: "#1a2535",   // navy border
-        primaryBlue: "#0ea5e9",     // sky blue primary
-        secondaryPurple: "#0d9488", // deep teal secondary
-        accentGreen: "#0ea5e9",     // primary brand sky blue
-        brightTeal: "#0d9488",      // deep teal
-        accentAmber: "#f59e0b",     // amber gold accent
-        glowIndigo: "#38bdf8",      // light sky glow
-        glowingMagenta: "#fbbf24",  // bright gold
-        textPrimary: "#f0f9ff",
-        textMuted: "#64748b",
+        darkBg: "#1a1b20",          // graphite background
+        surface: "#1e2026",         // surface panels
+        surfaceCard: "#22242d",     // card background
+        surfaceBorder: "#2a2c33",   // hairline border
+        primaryBlue: "#B5654A",     // desaturated brick/rust accent
+        secondaryPurple: "#2e3039", // neutral dark fill
+        accentGreen: "#B5654A",     // desaturated brick/rust
+        brightTeal: "#B5654A",      // desaturated brick/rust
+        accentAmber: "#B5654A",     // desaturated brick/rust
+        glowIndigo: "#9c9c94",      // muted text
+        glowingMagenta: "#EDEDE8",  // light text
+        textPrimary: "#EDEDE8",     // warm off-white text
+        textMuted: "#9c9c94",       // warm gray text
       },
       fontFamily: {
         sans: ["Inter", "Outfit", "sans-serif"],

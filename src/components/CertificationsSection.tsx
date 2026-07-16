@@ -141,12 +141,9 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] left-[-10%] w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-amber-500/5 rounded-full blur-[100px]" />
-      </div>
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
+      {/* Background Glow - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -155,7 +152,7 @@ export default function CertificationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#B5654A] font-bold"
           >
             My Certifications
           </motionFramer.p>
@@ -168,7 +165,7 @@ export default function CertificationsSection() {
           >
             Verified Credentials
           </motionFramer.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue to-secondaryPurple mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -182,45 +179,37 @@ export default function CertificationsSection() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={{
                   y: -5,
-                  boxShadow: `0 15px 30px ${cert.glowColor}`,
-                  borderColor: cert.iconColor,
+                  borderColor: "#B5654A",
                   transition: { duration: 0.3 }
                 }}
-                className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-slate-50/50 dark:bg-surface/50 transition-all duration-300 backdrop-blur-md flex flex-col justify-between"
+                className="p-6 rounded-[3px] border border-[#2A2C33] bg-[#22242D] transition-all duration-300 backdrop-blur-md flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-start mb-4">
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center border text-lg font-bold"
-                      style={{
-                        borderColor: `${cert.iconColor}30`,
-                        color: cert.iconColor,
-                        backgroundColor: `${cert.iconColor}08`
-                      }}
-                    >
+                    <div className="w-10 h-10 rounded-[3px] flex items-center justify-center border border-[#2A2C33] bg-[#2E3039] text-[#EDEDE8]">
                       <Award size={20} />
                     </div>
-                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-slate-100 dark:bg-white/5 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-mono text-[#9C9C94] uppercase tracking-widest bg-[#2E3039] border border-[#2A2C33] px-2.5 py-1 rounded-[3px]">
                       {cert.date}
                     </span>
                   </div>
                   <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5 leading-snug">
                     {cert.title}
                   </h3>
-                  <p className="text-xs font-semibold text-primaryBlue tracking-wide mb-4">
+                  <p className="text-xs font-semibold text-[#B5654A] tracking-wide mb-4">
                     {cert.issuer}
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-white/5">
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400 dark:text-white/30 font-mono">
+                <div className="flex items-center justify-between pt-4 border-t border-[#2A2C33]">
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-[#9C9C94] font-mono">
                     Credential Link
                   </span>
                   <a
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/50 hover:bg-primaryBlue hover:text-white hover:border-primaryBlue transition-all duration-200"
+                    className="flex items-center justify-center w-8 h-8 rounded-[3px] border border-[#2A2C33] text-[#9C9C94] hover:bg-[#B5654A] hover:text-[#EDEDE8] hover:border-[#B5654A] transition-all duration-200"
                   >
                     <ExternalLink size={14} />
                   </a>

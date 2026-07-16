@@ -20,12 +20,9 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-sky-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px]" />
-      </div>
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
+      {/* Background Glow - disabled */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -34,7 +31,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#B5654A] font-bold"
           >
             Get To Know Me
           </motion.p>
@@ -47,7 +44,7 @@ export default function AboutSection() {
           >
             About Myself
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-secondaryPurple to-primaryBlue mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -72,7 +69,7 @@ export default function AboutSection() {
             <div className="space-y-3.5 pt-2">
               {bullets.map((bullet, idx) => (
                 <div key={idx} className="flex gap-3 items-start">
-                  <div className="text-primaryBlue mt-1 shrink-0">
+                  <div className="text-[#B5654A] mt-1 shrink-0">
                     <CheckCircle2 size={16} />
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
@@ -83,16 +80,16 @@ export default function AboutSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-6 pt-4">
-              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-surface/50 p-4 rounded-xl backdrop-blur-md">
-                <span className="block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondaryPurple to-primaryBlue font-display">
+              <div className="border border-[#2A2C33] bg-[#22242D] p-4 rounded-[3px] backdrop-blur-md">
+                <span className="block text-3xl font-bold text-[#EDEDE8] font-display">
                   8.5
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tracking-widest uppercase">
                   CGPA Score
                 </span>
               </div>
-              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-surface/50 p-4 rounded-xl backdrop-blur-md">
-                <span className="block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue to-brightTeal font-display">
+              <div className="border border-[#2A2C33] bg-[#22242D] p-4 rounded-[3px] backdrop-blur-md">
+                <span className="block text-3xl font-bold text-[#EDEDE8] font-display">
                   Top 250
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tracking-widest uppercase">
@@ -109,7 +106,7 @@ export default function AboutSection() {
                     (window as any).playClickSound();
                   }
                 }}
-                className="inline-flex items-center gap-2 border border-primaryBlue text-primaryBlue px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold hover:bg-primaryBlue hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 rounded-full"
+                className="inline-flex items-center gap-2 border border-[#B5654A] text-[#B5654A] px-6 py-3 text-xs tracking-[0.2em] uppercase font-bold hover:bg-[#B5654A] hover:text-[#EDEDE8] transition-all duration-300 rounded-[3px]"
               >
                 <Sparkles size={14} /> Interactive 3D Card
               </button>
@@ -127,16 +124,13 @@ export default function AboutSection() {
             {/* Rotating border container */}
             <div className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
               {/* Outer rotating gradient ring */}
-              <div className="absolute inset-0 rounded-full border-4 border-dashed border-primaryBlue/35 animate-rotate-ring pointer-events-none" />
+              <div className="absolute inset-0 rounded-full border-4 border-dashed border-[#B5654A]/35 animate-rotate-ring pointer-events-none" />
               
               {/* Secondary rotating accent ring */}
-              <div className="absolute inset-[6px] rounded-full border border-dashed border-secondaryPurple/30 animate-[rotate-ring_12s_linear_infinite_reverse] pointer-events-none" />
-              
-              {/* Background glow shadow */}
-              <div className="absolute w-[180px] h-[180px] rounded-full bg-gradient-to-r from-primaryBlue/15 to-secondaryPurple/15 blur-3xl pointer-events-none" />
+              <div className="absolute inset-[6px] rounded-full border border-dashed border-[#9C9C94]/30 animate-[rotate-ring_12s_linear_infinite_reverse] pointer-events-none" />
               
               {/* Image Frame */}
-              <div className="w-[200px] h-[200px] md:w-[230px] md:h-[230px] rounded-full overflow-hidden border-[6px] border-white dark:border-[#0d0d1a] shadow-2xl relative z-10">
+              <div className="w-[200px] h-[200px] md:w-[230px] md:h-[230px] rounded-full overflow-hidden border-[6px] border-[#2E3039] shadow-none relative z-10">
                 <img
                   src="/profile.jpg"
                   alt="Nag Prathik M G Portrait"
@@ -171,7 +165,7 @@ export default function AboutSection() {
                   (window as any).playClickSound();
                 }
               }}
-              className="absolute top-6 right-6 z-[60] w-12 h-12 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200"
+              className="absolute top-6 right-6 z-[60] w-12 h-12 rounded-[3px] border border-[#2A2C33] bg-[#2E3039] hover:bg-[#22242D] text-[#EDEDE8] flex items-center justify-center transition-all duration-200"
             >
               Close ✕
             </button>

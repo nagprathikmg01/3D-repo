@@ -48,7 +48,7 @@ export default function ContactSection() {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#3b82f6", "#7c3aed", "#10b981", "#06b6d4"]
+        colors: ["#B5654A", "#9C9C94", "#EDEDE8", "#2E3039"]
       });
 
       // Reset form
@@ -60,11 +60,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#1A1B20] text-[#EDEDE8] overflow-hidden transition-colors duration-300">
       {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(156, 156, 148, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(156, 156, 148, 0.05) 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       />
@@ -76,7 +76,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-[#B5654A] font-bold"
           >
             Get In Touch
           </motion.p>
@@ -89,7 +89,7 @@ export default function ContactSection() {
           >
             Let's Build Together
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal mx-auto mt-4 rounded-full" />
+          <div className="h-[2px] w-16 bg-[#B5654A] mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
@@ -108,26 +108,26 @@ export default function ContactSection() {
             <div className="space-y-4">
               <a
                 href="mailto:nagprathikmg@gmail.com"
-                className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-primaryBlue/35 hover:shadow-lg hover:shadow-primaryBlue/5 transition-all duration-300"
+                className="group flex items-center gap-4 p-4 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-500/10 text-primaryBlue group-hover:bg-primaryBlue group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#B5654A] group-hover:bg-[#B5654A] group-hover:text-[#EDEDE8] transition-all duration-300">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">Email</p>
+                  <p className="text-xs text-[#9C9C94] font-mono tracking-widest uppercase">Email</p>
                   <p className="text-sm font-bold text-slate-800 dark:text-slate-200">nagprathikmg@gmail.com</p>
                 </div>
               </a>
 
               <a
                 href="tel:+918892686763"
-                className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-brightTeal/35 hover:shadow-lg hover:shadow-brightTeal/5 transition-all duration-300"
+                className="group flex items-center gap-4 p-4 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10 text-brightTeal group-hover:bg-brightTeal group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#B5654A] group-hover:bg-[#B5654A] group-hover:text-[#EDEDE8] transition-all duration-300">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">Phone</p>
+                  <p className="text-xs text-[#9C9C94] font-mono tracking-widest uppercase">Phone</p>
                   <p className="text-sm font-bold text-slate-800 dark:text-slate-200">+91-88926-86763</p>
                 </div>
               </a>
@@ -136,13 +136,13 @@ export default function ContactSection() {
                 href="https://www.linkedin.com/in/nag-prathik-m-g"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-secondaryPurple/35 hover:shadow-lg hover:shadow-secondaryPurple/5 transition-all duration-300"
+                className="group flex items-center gap-4 p-4 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10 text-secondaryPurple group-hover:bg-secondaryPurple group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#B5654A] group-hover:bg-[#B5654A] group-hover:text-[#EDEDE8] transition-all duration-300">
                   <LinkedinIcon size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">LinkedIn</p>
+                  <p className="text-xs text-[#9C9C94] font-mono tracking-widest uppercase">LinkedIn</p>
                   <p className="text-sm font-bold text-slate-800 dark:text-slate-200">nag-prathik-m-g</p>
                 </div>
               </a>
@@ -151,13 +151,13 @@ export default function ContactSection() {
                 href="https://github.com/nagprathikmg01"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-slate-400 dark:hover:border-white/30 hover:shadow-lg hover:shadow-white/5 transition-all duration-300"
+                className="group flex items-center gap-4 p-4 rounded-[3px] border border-[#2A2C33] bg-[#22242D] hover:border-[#B5654A] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-white group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all duration-300">
+                <div className="w-10 h-10 rounded-[3px] flex items-center justify-center bg-[#2E3039] border border-[#2A2C33] text-[#B5654A] group-hover:bg-[#B5654A] group-hover:text-[#EDEDE8] transition-all duration-300">
                   <GithubIcon size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">GitHub</p>
+                  <p className="text-xs text-[#9C9C94] font-mono tracking-widest uppercase">GitHub</p>
                   <p className="text-sm font-bold text-slate-800 dark:text-slate-200">nagprathikmg01</p>
                 </div>
               </a>
@@ -168,7 +168,7 @@ export default function ContactSection() {
               <a
                 href="/resume.pdf"
                 download="Nag_Prathik_M_G_Resume.pdf"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white px-8 py-4 rounded-xl text-sm uppercase tracking-wider font-bold hover:shadow-[0_10px_25px_rgba(59,130,246,0.35)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 w-full justify-center"
+                className="inline-flex items-center gap-3 bg-[#B5654A] text-[#EDEDE8] px-8 py-4 rounded-[3px] text-sm uppercase tracking-wider font-bold hover:bg-[#B5654A]/90 active:scale-[0.97] transition-all duration-300 w-full justify-center"
               >
                 <Download size={18} /> Download Resume
               </a>
@@ -181,22 +181,22 @@ export default function ContactSection() {
               onMouseMove={handleMouseMove}
               whileHover={{ rotateX: 2, rotateY: -2, scale: 1.01 }}
               transition={{ duration: 0.4 }}
-              className="relative bg-white dark:bg-surface/50 border border-slate-200 dark:border-surfaceBorder rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.03)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden h-full flex flex-col justify-between"
+              className="relative bg-[#22242D] border border-[#2A2C33] rounded-[3px] p-8 shadow-none overflow-hidden h-full flex flex-col justify-between"
             >
               {/* Dynamic mouse hover light effect */}
               <div
-                className="absolute w-64 h-64 rounded-full pointer-events-none blur-[80px] opacity-15 dark:opacity-20 transition-all duration-200"
+                className="absolute w-64 h-64 rounded-full pointer-events-none blur-[80px] opacity-[0.08] transition-all duration-200"
                 style={{
                   left: position.x - 128,
                   top: position.y - 128,
-                  background: "radial-gradient(circle, rgba(59,130,246,0.4), transparent 70%)",
+                  background: "radial-gradient(circle, rgba(181,101,74,0.4), transparent 70%)",
                 }}
               />
 
               <form onSubmit={handleFormSubmit} className="space-y-6 relative z-10 h-full flex flex-col justify-between">
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest font-mono">
+                    <label className="text-xs font-bold text-[#9C9C94] uppercase tracking-widest font-mono">
                       Your Name
                     </label>
                     <input
@@ -206,12 +206,12 @@ export default function ContactSection() {
                       onChange={handleChange}
                       required
                       placeholder="Nag Prathik"
-                      className="w-full h-12 px-5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-black/25 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primaryBlue outline-none transition-all duration-300 font-medium font-sans"
+                      className="w-full h-12 px-5 rounded-[3px] border border-[#2A2C33] bg-[#2E3039] text-[#EDEDE8] placeholder:text-[#9C9C94]/50 focus:border-[#B5654A] outline-none transition-all duration-300 font-medium font-sans"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest font-mono">
+                    <label className="text-xs font-bold text-[#9C9C94] uppercase tracking-widest font-mono">
                       Your Email
                     </label>
                     <input
@@ -221,12 +221,12 @@ export default function ContactSection() {
                       onChange={handleChange}
                       required
                       placeholder="nagprathikmg01@gmail.com"
-                      className="w-full h-12 px-5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-black/25 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primaryBlue outline-none transition-all duration-300 font-medium font-sans"
+                      className="w-full h-12 px-5 rounded-[3px] border border-[#2A2C33] bg-[#2E3039] text-[#EDEDE8] placeholder:text-[#9C9C94]/50 focus:border-[#B5654A] outline-none transition-all duration-300 font-medium font-sans"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest font-mono">
+                    <label className="text-xs font-bold text-[#9C9C94] uppercase tracking-widest font-mono">
                       Message
                     </label>
                     <textarea
@@ -236,7 +236,7 @@ export default function ContactSection() {
                       required
                       rows={4}
                       placeholder="Hi, let's connect..."
-                      className="w-full p-5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-black/25 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primaryBlue outline-none transition-all duration-300 font-medium font-sans resize-none"
+                      className="w-full p-5 rounded-[3px] border border-[#2A2C33] bg-[#2E3039] text-[#EDEDE8] placeholder:text-[#9C9C94]/50 focus:border-[#B5654A] outline-none transition-all duration-300 font-medium font-sans resize-none"
                     />
                   </div>
                 </div>
@@ -245,7 +245,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full h-12 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-black font-bold uppercase tracking-wider text-xs hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden"
+                    className="w-full h-12 rounded-[3px] bg-[#B5654A] text-[#EDEDE8] font-bold uppercase tracking-wider text-xs hover:opacity-90 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden"
                   >
                     {submitting ? (
                       <span className="flex items-center gap-2">
