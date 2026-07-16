@@ -3,10 +3,12 @@ import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sparkles, OrbitControls } from "@react-three/drei";
 
-// Neural network wireframe: outer icosahedron shell + dim solid inner core
+// Neural network wireframe: outer icosahedron shell + glowing inner core + orbit ring
 function NeuralMesh() {
   const groupRef = useRef<THREE.Group>(null);
   const wireRef = useRef<THREE.Mesh>(null);
+  const coreRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -14,6 +16,14 @@ function NeuralMesh() {
     if (wireRef.current) {
       wireRef.current.rotation.x = t * 0.15;
       wireRef.current.rotation.y = t * 0.2;
+    }
+
+    if (ringRef.current) {
+      ringRef.current.rotation.z += 0.003;
+    }
+
+    if (coreRef.current) {
+      coreRef.current.rotation.y -= 0.005;
     }
 
     if (groupRef.current) {
@@ -39,43 +49,28 @@ function NeuralMesh() {
         />
       </mesh>
 
-      {/* Inner solid core with lower opacity */}
-      <mesh scale={0.62}>
-        <icosahedronGeometry args={[1.8, 1]} />
-        <meshPhysicalMaterial
-          color="#3b82f6"
-          emissive="#7c3aed"
-          emissiveIntensity={0.5}
-          roughness={0.1}
-          metalness={0.9}
+      {/* Inner solid core (smaller, glowing) */}
+      <mesh ref={coreRef}>
+        <icosahedronGeometry args={[0.9, 2]} />
+        <meshStandardMaterial
+          color="#7c3aed"
+          emissive="#3b82f6"
+          emissiveIntensity={0.6}
           transparent
-          opacity={0.35}
+          opacity={0.4}
+        />
+      </mesh>
+
+      {/* Orbit ring around sphere */}
+      <mesh ref={ringRef} rotation={[Math.PI / 3, 0, 0]}>
+        <torusGeometry args={[2.4, 0.015, 8, 100]} />
+        <meshBasicMaterial
+          color="#06b6d4"
+          transparent
+          opacity={0.5}
         />
       </mesh>
     </group>
-  );
-}
-
-// Purple + blue point lights orbiting the mesh
-function OrbitingLights() {
-  const purpleRef = useRef<THREE.PointLight>(null);
-  const blueRef = useRef<THREE.PointLight>(null);
-
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    if (purpleRef.current) {
-      purpleRef.current.position.set(Math.cos(t * 0.7) * 3, Math.sin(t * 0.5) * 2, Math.sin(t * 0.7) * 3);
-    }
-    if (blueRef.current) {
-      blueRef.current.position.set(Math.cos(t * 0.7 + Math.PI) * 3, Math.cos(t * 0.5) * 2, Math.sin(t * 0.7 + Math.PI) * 3);
-    }
-  });
-
-  return (
-    <>
-      <pointLight ref={purpleRef} intensity={12} color="#7c3aed" distance={10} />
-      <pointLight ref={blueRef} intensity={12} color="#3b82f6" distance={10} />
-    </>
   );
 }
 
@@ -91,10 +86,13 @@ export default function HeroThree() {
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} color="#3b82f6" />
           <directionalLight position={[-10, -10, -5]} intensity={0.8} color="#7c3aed" />
-          <pointLight position={[0, 0, 2]} intensity={1} color="#06b6d4" />
+          
+          {/* Point lights for glow effect */}
+          <pointLight position={[2, 2, 2]} intensity={2} color="#3b82f6" distance={8} />
+          <pointLight position={[-2, -1, -2]} intensity={1.5} color="#7c3aed" distance={8} />
+          <pointLight position={[0, -3, 1]} intensity={1} color="#06b6d4" distance={6} />
 
           <NeuralMesh />
-          <OrbitingLights />
 
           {/* Neural Network Sparkles Swarm */}
           <Sparkles

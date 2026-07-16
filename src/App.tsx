@@ -357,7 +357,7 @@ export default function App() {
               
               {/* Logo Initials */}
               <div className="flex items-center gap-3">
-                <span className="text-lg tracking-widest font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-glowIndigo via-primaryBlue to-brightTeal font-display">
+                <span className="nav-logo text-lg tracking-widest font-black uppercase font-display">
                   NPM G
                 </span>
               </div>
@@ -452,37 +452,46 @@ export default function App() {
               id="Home"
               className="gradient-mesh-bg relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg overflow-hidden"
             >
-              {/* Background Spots */}
+              {/* Background depth: animated blobs + grid overlay */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {/* Existing soft spots */}
                 <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-blue-500/8 dark:bg-blue-600/12 rounded-full blur-[160px]" />
                 <div className="absolute bottom-[10%] right-[15%] w-[450px] h-[450px] bg-violet-500/6 dark:bg-violet-500/10 rounded-full blur-[140px]" />
                 <div className="absolute top-[50%] right-[30%] w-[300px] h-[300px] bg-cyan-400/4 dark:bg-cyan-400/7 rounded-full blur-[100px]" />
+                {/* Animated radial blob 1 — top right, purple */}
+                <div className="hero-bg-blob-1" />
+                {/* Animated radial blob 2 — bottom left, blue */}
+                <div className="hero-bg-blob-2" />
+                {/* Subtle animated grid overlay */}
+                <div className="hero-grid" />
               </div>
 
               <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 
                 {/* Left: Bio text & CTA */}
                 <div className="lg:col-span-7 space-y-6 text-left">
-                  {/* Pulse open badge */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-wider font-mono">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+                  {/* Internship availability badge */}
+                  <div className="internship-badge">
+                    <span className="badge-dot" />
                     Open to Internships
                   </div>
 
-                  <h1 className="text-5xl md:text-6xl xl:text-7xl font-black font-display tracking-tight leading-tight shimmer-text">
+                  <h1 className="text-5xl md:text-6xl xl:text-7xl font-black font-display leading-tight hero-name">
                     NAG PRATHIK M G
                   </h1>
 
                   {/* Typewriter */}
-                  <h3 className="text-xl md:text-2xl font-bold font-mono tracking-wide h-[40px]">
-                    <Typewriter
-                      words={[
-                        "Building AI-Powered Products",
-                        "Full-Stack + AI/ML Engineer",
-                        "Google Student Ambassador · Top 250 Globally",
-                        "Cloud · React · Flutter · PyTorch",
-                      ]}
-                    />
+                  <h3 className="text-xl md:text-2xl font-mono tracking-wide h-[40px]">
+                    <span className="typewriter-text">
+                      <Typewriter
+                        words={[
+                          "Building AI-Powered Products",
+                          "Full-Stack + AI/ML Engineer",
+                          "Google Student Ambassador · Top 250 Globally",
+                          "Cloud · React · Flutter · PyTorch",
+                        ]}
+                      />
+                    </span>
                   </h3>
 
                   <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed font-sans max-w-xl">
@@ -496,7 +505,7 @@ export default function App() {
                         playClickSound();
                         document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+                      className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm uppercase tracking-wider active:scale-[0.97] transition-all duration-300"
                     >
                       View Projects <ArrowUpRight size={16} />
                     </button>
@@ -504,7 +513,7 @@ export default function App() {
                     <a
                       href="/resume.pdf"
                       download="Nag_Prathik_M_G_Resume.pdf"
-                      className="inline-flex items-center gap-2 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white bg-slate-200/50 dark:bg-white/5 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-slate-950 dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-slate-900 dark:hover:border-white transition-all duration-300"
+                      className="btn-secondary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300"
                     >
                       <Download size={16} /> Download Resume
                     </a>
@@ -516,7 +525,7 @@ export default function App() {
                       href="https://github.com/nagprathikmg01"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/30 transition-all duration-300"
+                      className="social-icon"
                     >
                       <GithubIcon size={18} />
                     </a>
@@ -524,13 +533,13 @@ export default function App() {
                       href="https://www.linkedin.com/in/nag-prathik-m-g"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/30 transition-all duration-300"
+                      className="social-icon"
                     >
                       <LinkedinIcon size={18} />
                     </a>
                     <a
                       href="mailto:nagprathikmg@gmail.com"
-                      className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/30 transition-all duration-300"
+                      className="social-icon"
                     >
                       <Mail size={18} />
                     </a>
@@ -538,7 +547,7 @@ export default function App() {
                 </div>
 
                 {/* Right: 3D animated crystal mesh with Neural network SVG background */}
-                <div className="lg:col-span-5 flex justify-center relative py-12 lg:py-0 w-full h-[400px] md:h-[450px]">
+                <div className="lg:col-span-5 three-canvas-wrapper flex justify-center relative py-12 lg:py-0 w-full h-[400px] md:h-[450px]">
                   {/* Neural network SVG background */}
                   <NeuralNetworkSVG />
                   
