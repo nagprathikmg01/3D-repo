@@ -22,12 +22,12 @@ export default function ParticleBackground() {
     // Slow rotation of the entire field around the viewport center
     const fieldRotationSpeed = 0.0004;
 
-    // 60% blue, 30% purple, 10% cyan
+    // 60% emerald green, 30% gold, 10% light emerald
     const pickColor = () => {
       const r = Math.random();
-      if (r < 0.6) return "59, 130, 246";
-      if (r < 0.9) return "124, 58, 237";
-      return "6, 182, 212";
+      if (r < 0.6) return "16, 185, 129";
+      if (r < 0.9) return "212, 160, 23";
+      return "52, 211, 153";
     };
 
     interface IParticle {
@@ -139,7 +139,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+            ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

@@ -10,7 +10,7 @@ export default function EducationSection() {
       score: "CGPA: 8.5 / 10",
       location: "Bengaluru, Karnataka",
       featured: true,
-      accent: "from-blue-500 to-blue-500",
+      accent: "from-emerald-500 to-emerald-500",
     },
     {
       institution: "Ambika PU College",
@@ -19,7 +19,7 @@ export default function EducationSection() {
       score: "Percentage: 92.5%",
       location: "Mangaluru, Karnataka",
       featured: false,
-      accent: "from-purple-500 to-pink-500",
+      accent: "from-amber-500 to-yellow-500",
     },
     {
       institution: "St. Joseph's High School",
@@ -36,8 +36,8 @@ export default function EducationSection() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[10%] w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -75,8 +75,8 @@ export default function EducationSection() {
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 className={`rounded-2xl border transition-all duration-300 backdrop-blur-md flex flex-col justify-between p-8 relative overflow-hidden ${
                   edu.featured
-                    ? "lg:col-span-6 border-primaryBlue/30 bg-white dark:bg-[#111118]/80 shadow-[0_10px_30px_rgba(59,130,246,0.08)] dark:shadow-[0_10px_30px_rgba(59,130,246,0.03)]"
-                    : "lg:col-span-3 border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/40 hover:border-slate-300 dark:hover:border-slate-800"
+                    ? "lg:col-span-6 border-primaryBlue/30 bg-white dark:bg-[#0a1a0d]/80 shadow-[0_10px_30px_rgba(16,185,129,0.08)] dark:shadow-[0_10px_30px_rgba(16,185,129,0.03)]"
+                    : "lg:col-span-3 border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#0a1a0d]/40 hover:border-slate-300 dark:hover:border-slate-800"
                 }`}
               >
                 {/* Accent Top Bar for featured */}

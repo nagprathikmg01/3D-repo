@@ -59,9 +59,9 @@ body { font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-
 .profile-photo { width: 150px; height: 150px; border-radius: 12px; border: 3px solid #444444; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); flex-shrink: 0; object-fit: cover; }
 .header-content { flex: 1; }
 .header-content h1 { font-size: 36px; margin-bottom: 8px; font-weight: 700; color: #ffffff; }
-.header-content .title { font-size: 14px; color: #06b6d4; margin-bottom: 18px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.header-content .title { font-size: 14px; color: #10b981; margin-bottom: 18px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; }
-.contact-item { display: flex; align-items: center; gap: 8px; padding: 8px; background: #1a1a1a; border-radius: 6px; border: 1px solid #333333; }
+.contact-item { display: flex; align-items: center; gap: 8px; padding: 8px; background: #111a14; border-radius: 6px; border: 1px solid #1a3320; }
 .contact-item a { color: #ffffff; text-decoration: none; word-break: break-all; }
 .content { padding: 40px; background: #0d0d0d; }
 .section { margin-bottom: 35px; }
@@ -72,16 +72,16 @@ body { font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-
 .skill-category h3 { color: #ffffff; font-size: 14px; margin-bottom: 15px; font-weight: 600; border-bottom: 1px solid #333; padding-bottom: 5px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .skill-tag { background: #2a2a2a; color: #e0e0e0; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; border: 1px solid #3a3a3a; }
-.experience-item { background: #1a1a1a; padding: 18px; border-radius: 6px; border: 1px solid #2a2a2a; border-left: 3px solid #6366f1; margin-bottom: 15px; }
+.experience-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #10b981; margin-bottom: 15px; }
 .experience-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
-.experience-item .duration { font-size: 12px; color: #06b6d4; font-weight: 500; }
+.experience-item .duration { font-size: 12px; color: #d4a017; font-weight: 500; }
 .experience-item .company { font-size: 13px; color: #b0b0b0; margin-bottom: 8px; font-style: italic; }
 .experience-item ul { margin-left: 15px; color: #d0d0d0; font-size: 13px; line-height: 1.6; }
-.project-item { background: #1a1a1a; padding: 18px; border-radius: 6px; border: 1px solid #2a2a2a; border-left: 3px solid #06b6d4; margin-bottom: 15px; }
+.project-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #d4a017; margin-bottom: 15px; }
 .project-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; margin-bottom: 5px; }
 .project-item .tech-used { font-size: 12px; color: #888888; margin-bottom: 8px; font-family: monospace; }
 .project-item ul { margin-left: 15px; color: #d0d0d0; font-size: 13px; line-height: 1.6; }
-.education-item { background: #1a1a1a; padding: 18px; border-radius: 6px; border: 1px solid #2a2a2a; border-left: 3px solid #d946ef; margin-bottom: 15px; }
+.education-item { background: #111a14; padding: 18px; border-radius: 6px; border: 1px solid #1a3320; border-left: 3px solid #10b981; margin-bottom: 15px; }
 .education-item h3 { color: #ffffff; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; }
 .education-item .duration { font-size: 13px; color: #888888; font-weight: 400; }
 .education-item p { color: #b0b0b0; font-size: 13px; margin-top: 4px; }
@@ -292,18 +292,18 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
   };
 
   return (
-    <div className="relative min-h-screen bg-[#020617] overflow-hidden text-white px-4 sm:px-6 py-10">
+    <div className="relative min-h-screen bg-[#020805] overflow-hidden text-white px-4 sm:px-6 py-10">
       {/* ANIMATED BACKGROUND EFFECTS */}
       <div className="fixed inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
           }}
         />
-        <div className="absolute top-20 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" style={{ animationDelay: "2.5s" }} />
+        <div className="absolute top-20 left-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" style={{ animationDelay: "2.5s" }} />
       </div>
 
       {/* BACK BUTTON */}
@@ -333,7 +333,7 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center"
         >
-          <div className="p-1 rounded-2xl bg-gradient-to-tr from-blue-500 via-cyan-500 to-pink-500 shadow-[0_0_40px_rgba(99,102,241,0.25)]">
+          <div className="p-1 rounded-2xl bg-gradient-to-tr from-emerald-500 via-emerald-400 to-amber-500 shadow-[0_0_40px_rgba(16,185,129,0.25)]">
             <img
               src="/assets/prathik.jpeg"
               alt="Nag Prathik M G"

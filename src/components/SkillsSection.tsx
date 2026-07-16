@@ -6,19 +6,19 @@ export default function SkillsSection() {
     {
       title: "AI / ML",
       icon: Brain,
-      color: "border-purple-500/30 text-purple-600 dark:text-purple-400 bg-purple-500/5",
+      color: "border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/5",
       skills: ["PyTorch", "Transformers", "LLMs", "RAG", "Agentic AI", "NLP", "Generative AI", "Gemini API", "Vertex AI", "Prompt Engineering", "Streamlit"],
     },
     {
       title: "Full-Stack / Web",
       icon: Cpu,
-      color: "border-blue-500/30 text-blue-600 dark:text-blue-400 bg-blue-500/5",
+      color: "border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/5",
       skills: ["Flutter", "React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "REST APIs", "TypeScript", "Prisma"],
     },
     {
       title: "Cloud & DevOps",
       icon: Cloud,
-      color: "border-cyan-500/30 text-cyan-600 dark:text-cyan-400 bg-cyan-500/5",
+      color: "border-yellow-500/30 text-yellow-600 dark:text-yellow-400 bg-yellow-500/5",
       skills: ["GCP", "AWS (EC2, S3, IAM)", "Terraform", "Firebase", "Docker", "GitHub", "Vercel", "CI/CD", "NVIDIA NIM"],
     },
     {
@@ -30,7 +30,7 @@ export default function SkillsSection() {
     {
       title: "Languages",
       icon: Code2,
-      color: "border-orange-500/30 text-orange-600 dark:text-orange-400 bg-orange-500/5",
+      color: "border-yellow-600/30 text-yellow-600 dark:text-yellow-400 bg-yellow-600/5",
       skills: ["Python", "Java", "JavaScript", "TypeScript", "Dart", "C", "SQL"],
     },
   ];
@@ -57,8 +57,8 @@ export default function SkillsSection() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background spotlights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] right-[-10%] w-[400px] h-[400px] bg-violet-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] left-[-10%] w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[110px]" />
+        <div className="absolute top-[30%] right-[-10%] w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[110px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -98,7 +98,7 @@ export default function SkillsSection() {
                 key={idx}
                 variants={cardVariants}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-slate-50/50 dark:bg-surface/50 hover:border-blue-500/30 dark:hover:border-blue-500/20 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group"
+                className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-slate-50/50 dark:bg-surface/50 hover:border-emerald-500/30 dark:hover:border-emerald-500/20 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`p-3 rounded-xl border ${category.color}`}>

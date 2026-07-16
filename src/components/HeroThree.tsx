@@ -8,12 +8,12 @@ const LAYERS = [4, 6, 6, 5, 3];   // neurons per layer
 const LAYER_GAP = 1.4;             // horizontal spacing
 const NEURON_RADIUS = 0.12;
 const COLORS = {
-  neuron_idle:   0x1e3a5f,
-  neuron_active: 0x3b82f6,
-  neuron_fired:  0x06b6d4,
-  connection:    0x1e2a4a,
-  signal:        0x7c3aed,
-  output:        0x10b981,
+  neuron_idle:   0x064e3b,   /* dark emerald */
+  neuron_active: 0x10b981,   /* emerald green */
+  neuron_fired:  0xd4a017,   /* gold flash */
+  connection:    0x0a2e1a,   /* dark green connection */
+  signal:        0xf59e0b,   /* amber gold signal particle */
+  output:        0xfbbf24,   /* bright gold output */
 };
 
 interface Neuron {
@@ -93,7 +93,7 @@ function NeuralNetwork() {
         // Glow ring around each neuron
         const ringGeo = new THREE.TorusGeometry(NEURON_RADIUS * 1.8, 0.008, 8, 32);
         const ringMat = new THREE.MeshBasicMaterial({
-          color: 0x3b82f6,
+          color: 0x10b981,
           transparent: true,
           opacity: 0.0,
         });
@@ -217,10 +217,10 @@ function NeuralNetwork() {
         n.fireTimer += d;
         const t = Math.min(n.fireTimer / 0.5, 1);
 
-        // Pulse color blue → cyan → back
-        n.mat.emissive.setHex(0x3b82f6);
+        // Pulse color emerald → gold → back
+        n.mat.emissive.setHex(0x10b981);
         n.mat.emissiveIntensity = t < 0.5 ? t * 2 : (1 - t) * 2;
-        n.mat.color.setHex(t < 0.5 ? 0x3b82f6 : 0x06b6d4);
+        n.mat.color.setHex(t < 0.5 ? 0x10b981 : 0xd4a017);
 
         // Ring glow
         const ringMat = n.ring.material as THREE.MeshBasicMaterial;
@@ -281,9 +281,9 @@ function NetworkLights() {
   return (
     <>
       <ambientLight color="#0a0a1a" intensity={1} />
-      <pointLight ref={blueLightRef} position={[3, 2, 3]} intensity={3} color="#3b82f6" distance={10} />
-      <pointLight ref={purpleLightRef} position={[-3, -2, -2]} intensity={2} color="#7c3aed" distance={10} />
-      <pointLight position={[0, 3, 1]} intensity={1.5} color="#06b6d4" distance={8} />
+      <pointLight ref={blueLightRef} position={[3, 2, 3]} intensity={3} color="#10b981" distance={10} />
+      <pointLight ref={purpleLightRef} position={[-3, -2, -2]} intensity={2} color="#d4a017" distance={10} />
+      <pointLight position={[0, 3, 1]} intensity={1.5} color="#34d399" distance={8} />
     </>
   );
 }
@@ -306,14 +306,14 @@ export default function HeroThree() {
             scale={4.5}
             size={3.5}
             speed={0.4}
-            color="#06b6d4"
+            color="#34d399"
           />
           <Sparkles
             count={60}
             scale={5}
             size={2}
             speed={0.2}
-            color="#7c3aed"
+            color="#d4a017"
           />
 
           <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />

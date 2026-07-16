@@ -455,9 +455,9 @@ export default function App() {
               {/* Background depth: animated blobs + grid overlay */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {/* Existing soft spots */}
-                <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-blue-500/8 dark:bg-blue-600/12 rounded-full blur-[160px]" />
-                <div className="absolute bottom-[10%] right-[15%] w-[450px] h-[450px] bg-violet-500/6 dark:bg-violet-500/10 rounded-full blur-[140px]" />
-                <div className="absolute top-[50%] right-[30%] w-[300px] h-[300px] bg-cyan-400/4 dark:bg-cyan-400/7 rounded-full blur-[100px]" />
+                <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/8 dark:bg-emerald-600/12 rounded-full blur-[160px]" />
+                <div className="absolute bottom-[10%] right-[15%] w-[450px] h-[450px] bg-amber-500/6 dark:bg-amber-500/10 rounded-full blur-[140px]" />
+                <div className="absolute top-[50%] right-[30%] w-[300px] h-[300px] bg-emerald-400/4 dark:bg-emerald-400/7 rounded-full blur-[100px]" />
                 {/* Animated radial blob 1 — top right, purple */}
                 <div className="hero-bg-blob-1" />
                 {/* Animated radial blob 2 — bottom left, blue */}
@@ -608,7 +608,7 @@ export default function App() {
                 </div>
 
                 <div className="border-l border-slate-200 dark:border-surfaceBorder space-y-1">
-                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-amber-500 font-display">
+                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-500 font-display">
                     <CountUp end={8.5} duration={1.5} />
                   </p>
                   <p className="text-[10px] tracking-widest font-mono text-slate-500 uppercase font-bold">
@@ -617,7 +617,7 @@ export default function App() {
                 </div>
 
                 <div className="border-l border-slate-200 dark:border-surfaceBorder space-y-1">
-                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-pink-500 font-display">
+                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-emerald-600 font-display">
                     <CountUp end={200} />+
                   </p>
                   <p className="text-[10px] tracking-widest font-mono text-slate-500 uppercase font-bold">
@@ -626,7 +626,7 @@ export default function App() {
                 </div>
 
                 <div className="border-l border-slate-200 dark:border-surfaceBorder space-y-1">
-                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-secondaryPurple font-display">
+                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-400 font-display">
                     <CountUp end={2} />
                   </p>
                   <p className="text-[10px] tracking-widest font-mono text-slate-500 uppercase font-bold">

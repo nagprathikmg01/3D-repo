@@ -144,8 +144,8 @@ export default function CertificationsSection() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] left-[-10%] w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[30%] left-[-10%] w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-amber-500/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

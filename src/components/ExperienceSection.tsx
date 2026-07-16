@@ -45,8 +45,8 @@ export default function ExperienceSection() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-blue-500/6 rounded-full blur-[110px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-violet-500/5 rounded-full blur-[110px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-emerald-500/6 rounded-full blur-[110px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-amber-500/5 rounded-full blur-[110px]" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -91,9 +91,9 @@ export default function ExperienceSection() {
                   }`}
                 >
                   {/* Circle Node on Line with pulsing glow ring */}
-                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-blue-500/30 dark:border-blue-500/20 bg-white dark:bg-darkBg flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-emerald-500/30 dark:border-emerald-500/20 bg-white dark:bg-darkBg flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
                     {/* Outer ping ring */}
-                    <span className="absolute w-8 h-8 rounded-full bg-blue-500/10 animate-ping" style={{ animationDuration: '2.5s' }} />
+                    <span className="absolute w-8 h-8 rounded-full bg-emerald-500/10 animate-ping" style={{ animationDuration: '2.5s' }} />
                     <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${exp.color}`} />
                   </div>
 
