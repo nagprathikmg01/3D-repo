@@ -546,14 +546,31 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right: 3D animated crystal mesh with Neural network SVG background */}
-                <div className="lg:col-span-5 three-canvas-wrapper flex justify-center relative py-12 lg:py-0 w-full h-[400px] md:h-[450px]">
+                {/* Right: 3D animated Neural Network with glow and metric chips */}
+                <div className="lg:col-span-5 hero-3d-wrapper flex justify-center relative py-12 lg:py-0 w-full h-[400px] md:h-[450px]">
+                  {/* Glow behind network */}
+                  <div className="nn-glow" />
+
                   {/* Neural network SVG background */}
                   <NeuralNetworkSVG />
                   
                   {/* R3F Canvas */}
                   <div className="absolute inset-0 z-10 w-full h-full">
                     <HeroThree />
+                  </div>
+
+                  {/* Floating ML stat chips */}
+                  <div className="ml-chip" style={{ top: "10%", right: "0%" }}>
+                    <span className="chip-dot"></span> Accuracy: 92%
+                  </div>
+                  <div className="ml-chip" style={{ top: "35%", right: "-10px" }}>
+                    <span className="chip-dot blue"></span> Loss: 0.08
+                  </div>
+                  <div className="ml-chip" style={{ bottom: "30%", right: "0%" }}>
+                    <span className="chip-dot purple"></span> Epoch: 128
+                  </div>
+                  <div className="ml-chip" style={{ bottom: "10%", right: "10%" }}>
+                    <span className="chip-dot cyan"></span> Training...
                   </div>
                 </div>
               </div>

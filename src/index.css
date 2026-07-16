@@ -749,3 +749,86 @@ canvas {
   letter-spacing: 0.05em;
 }
 
+/* ─── Hero 3D Wrapper Glow & Labels ──────────────────────────────── */
+.hero-3d-wrapper {
+  position: relative;
+}
+
+/* Layer glow labels */
+.hero-3d-wrapper::before {
+  content: 'INPUT';
+  position: absolute;
+  bottom: -24px; left: 8%;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(59,130,246,0.4);
+  font-family: 'JetBrains Mono', monospace;
+}
+.hero-3d-wrapper::after {
+  content: 'OUTPUT';
+  position: absolute;
+  bottom: -24px; right: 8%;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(16,185,129,0.4);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glow behind network */
+.nn-glow {
+  position: absolute; inset: 5%;
+  background: radial-gradient(ellipse,
+    rgba(124,58,237,0.2) 0%,
+    rgba(59,130,246,0.12) 40%,
+    transparent 70%);
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
+  animation: nnGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes nnGlowPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+/* ─── Floating ML Metric Chips ───────────────────────────────────── */
+.ml-chip {
+  position: absolute;
+  background: rgba(13,13,26,0.85);
+  border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #94a3b8;
+  display: flex; align-items: center; gap: 6px;
+  backdrop-filter: blur(8px);
+  animation: chipFloat 4s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 20;
+}
+.ml-chip:nth-child(2) { animation-delay: 1s; }
+.ml-chip:nth-child(3) { animation-delay: 2s; }
+.ml-chip:nth-child(4) { animation-delay: 3s; }
+
+@keyframes chipFloat {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-6px); }
+}
+
+.chip-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+.chip-dot.blue   { background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+.chip-dot.purple { background: #7c3aed; box-shadow: 0 0 8px #7c3aed; }
+.chip-dot.cyan   { background: #06b6d4; box-shadow: 0 0 8px #06b6d4; }
+
+@keyframes dotPulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+}
+
+
