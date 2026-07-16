@@ -15,35 +15,64 @@ const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
+// 14 drifting nodes + pulsing connection lines (styles in index.css: .neural-node / .neural-line)
+const NEURAL_NODES: Array<{ x: number; y: number; c: string }> = [
+  { x: 20, y: 30, c: "#3b82f6" },
+  { x: 50, y: 18, c: "#7c3aed" },
+  { x: 80, y: 32, c: "#3b82f6" },
+  { x: 70, y: 70, c: "#7c3aed" },
+  { x: 35, y: 80, c: "#3b82f6" },
+  { x: 45, y: 52, c: "#7c3aed" },
+  { x: 12, y: 58, c: "#3b82f6" },
+  { x: 88, y: 55, c: "#7c3aed" },
+  { x: 60, y: 40, c: "#3b82f6" },
+  { x: 30, y: 15, c: "#7c3aed" },
+  { x: 15, y: 85, c: "#3b82f6" },
+  { x: 85, y: 82, c: "#7c3aed" },
+  { x: 55, y: 90, c: "#3b82f6" },
+  { x: 65, y: 12, c: "#7c3aed" },
+];
+
+const NEURAL_LINKS: Array<[number, number]> = [
+  [0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 5], [2, 5], [3, 5], [4, 5],
+  [6, 0], [6, 4], [7, 2], [7, 3], [8, 1], [8, 5], [9, 0], [9, 1], [10, 4], [10, 6],
+  [11, 3], [11, 7], [12, 4], [12, 3], [13, 1], [13, 2],
+];
+
 const NeuralNetworkSVG = () => (
   <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
       <radialGradient id="neuralGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.3" />
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
         <stop offset="60%" stopColor="#7c3aed" stopOpacity="0.1" />
-        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+        <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
       </radialGradient>
     </defs>
     <circle cx="50" cy="50" r="45" fill="url(#neuralGlow)" />
-    <line x1="20" y1="30" x2="50" y2="20" stroke="#818cf8" strokeWidth="0.25" className="animate-pulse" />
-    <line x1="50" y1="20" x2="80" y2="35" stroke="#7c3aed" strokeWidth="0.25" />
-    <line x1="80" y1="35" x2="70" y2="70" stroke="#4f46e5" strokeWidth="0.25" />
-    <line x1="70" y1="70" x2="35" y2="80" stroke="#22d3ee" strokeWidth="0.25" className="animate-pulse" />
-    <line x1="35" y1="80" x2="20" y2="30" stroke="#7c3aed" strokeWidth="0.25" />
-    <line x1="20" y1="30" x2="45" y2="55" stroke="#4f46e5" strokeWidth="0.25" />
-    <line x1="50" y1="20" x2="45" y2="55" stroke="#818cf8" strokeWidth="0.25" />
-    <line x1="80" y1="35" x2="45" y2="55" stroke="#22d3ee" strokeWidth="0.25" />
-    <line x1="70" y1="70" x2="45" y2="55" stroke="#4f46e5" strokeWidth="0.25" />
-    <line x1="35" y1="80" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.25" />
-    <circle cx="20" cy="30" r="1.5" fill="#818cf8" className="animate-ping" style={{ animationDuration: '3s' }} />
-    <circle cx="20" cy="30" r="1" fill="#4f46e5" />
-    <circle cx="50" cy="20" r="1.2" fill="#7c3aed" />
-    <circle cx="80" cy="35" r="1.5" fill="#22d3ee" className="animate-ping" style={{ animationDuration: '4s' }} />
-    <circle cx="80" cy="35" r="1" fill="#22d3ee" />
-    <circle cx="70" cy="70" r="1.2" fill="#4f46e5" />
-    <circle cx="35" cy="80" r="1.5" fill="#7c3aed" className="animate-ping" style={{ animationDuration: '5s' }} />
-    <circle cx="35" cy="80" r="1" fill="#7c3aed" />
-    <circle cx="45" cy="55" r="2" fill="#818cf8" />
+    {NEURAL_LINKS.map(([a, b], i) => (
+      <line
+        key={`l${i}`}
+        x1={NEURAL_NODES[a].x}
+        y1={NEURAL_NODES[a].y}
+        x2={NEURAL_NODES[b].x}
+        y2={NEURAL_NODES[b].y}
+        stroke={i % 3 === 0 ? "#06b6d4" : i % 2 === 0 ? "#7c3aed" : "#3b82f6"}
+        strokeWidth="0.25"
+        className="neural-line"
+        style={{ "--i": i } as React.CSSProperties}
+      />
+    ))}
+    {NEURAL_NODES.map((n, i) => (
+      <circle
+        key={`n${i}`}
+        cx={n.x}
+        cy={n.y}
+        r={i === 5 ? 2 : 1.3}
+        fill={n.c}
+        className="neural-node"
+        style={{ "--i": i } as React.CSSProperties}
+      />
+    ))}
   </svg>
 );
 
@@ -87,7 +116,7 @@ function CountUp({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
     <span
       ref={ref}
       className={`font-display transition-all duration-300 ${
-        flashing ? "text-white brightness-150 drop-shadow-[0_0_15px_rgba(129,140,248,0.9)]" : ""
+        flashing ? "text-white brightness-150 drop-shadow-[0_0_15px_rgba(96,165,250,0.9)]" : ""
       }`}
     >
       {count}
@@ -150,23 +179,84 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
-  const [cursorVisible, setCursorVisible] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const cursorDotRef = useRef<HTMLDivElement>(null);
+  const cursorRingRef = useRef<HTMLDivElement>(null);
 
+  // Custom cursor: dot snaps to pointer, ring trails with lerp
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const dot = cursorDotRef.current;
+    const ring = cursorRingRef.current;
+    if (!dot || !ring) return;
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let rafId: number;
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setCursorVisible(true);
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      dot.style.opacity = "1";
+      ring.style.opacity = "1";
     };
-    const handleMouseLeave = () => setCursorVisible(false);
+
+    const handleMouseLeave = () => {
+      dot.style.opacity = "0";
+      ring.style.opacity = "0";
+    };
+
+    const animateRing = () => {
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      rafId = requestAnimationFrame(animateRing);
+    };
+    rafId = requestAnimationFrame(animateRing);
+
+    // Ring expands + fills over interactive elements
+    const interactiveSelector = "a, button, [role='button'], input, textarea, select, .cursor-pointer";
+    const handleOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(interactiveSelector)) {
+        ring.classList.add("hover");
+      } else {
+        ring.classList.remove("hover");
+      }
+    };
 
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseover", handleOver);
     return () => {
-      window.removeMouseMove = null; // clean up check
+      cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseover", handleOver);
     };
+  }, []);
+
+  // Reveal section-title underlines and timeline draw lines on scroll into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".animate-in, .section-title, .timeline-line").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   // Sync dark mode class with html node
@@ -214,6 +304,9 @@ export default function App() {
         }
       }
       setActiveSection(currentSection);
+
+      // Back-to-top button visibility
+      setShowBackToTop(window.scrollY > 400);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -250,7 +343,7 @@ export default function App() {
             {/* Scroll Indicator */}
             <div
               className="fixed top-0 left-0 h-[2px] z-[100] transition-all duration-100 ease-out"
-              style={{ width: `${scrollProgress * 100}%`, background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #22d3ee)' }}
+              style={{ width: `${scrollProgress * 100}%`, background: 'linear-gradient(90deg, #3b82f6, #7c3aed, #06b6d4)' }}
             />
 
             {/* Mesh Background */}
@@ -260,7 +353,7 @@ export default function App() {
             <AnimatePresence>{showWelcome && <WelcomeScreen />}</AnimatePresence>
 
             {/* Navbar */}
-            <nav className="nav-gradient-border fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4.5 backdrop-blur-3xl bg-white/70 dark:bg-[#09090b]/60 shadow-sm dark:shadow-[0_4px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
+            <nav className="nav-gradient-border nav-glass fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4.5 backdrop-blur-3xl bg-white/70 dark:bg-[#050508]/70 shadow-sm dark:shadow-[0_4px_32px_rgba(0,0,0,0.4)] transition-all duration-300">
               
               {/* Logo Initials */}
               <div className="flex items-center gap-3">
@@ -290,7 +383,7 @@ export default function App() {
                       <motion.div
                         layoutId="activeNavLine"
                         className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
-                        style={{ background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #22d3ee)' }}
+                        style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed, #06b6d4)' }}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -361,7 +454,7 @@ export default function App() {
             >
               {/* Background Spots */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-indigo-500/8 dark:bg-indigo-600/12 rounded-full blur-[160px]" />
+                <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-blue-500/8 dark:bg-blue-600/12 rounded-full blur-[160px]" />
                 <div className="absolute bottom-[10%] right-[15%] w-[450px] h-[450px] bg-violet-500/6 dark:bg-violet-500/10 rounded-full blur-[140px]" />
                 <div className="absolute top-[50%] right-[30%] w-[300px] h-[300px] bg-cyan-400/4 dark:bg-cyan-400/7 rounded-full blur-[100px]" />
               </div>
@@ -403,7 +496,7 @@ export default function App() {
                         playClickSound();
                         document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:shadow-[0_10px_30px_rgba(79,70,229,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:shadow-[0_10px_30px_rgba(59,130,246,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                     >
                       View Projects <ArrowUpRight size={16} />
                     </button>
@@ -550,19 +643,28 @@ export default function App() {
             {/* Footer */}
             <FooterSection />
 
-            {/* Custom Trailing Cursor */}
-            {cursorVisible && (
-              <div className="hidden lg:block">
-                <div
-                  className="fixed w-3 h-3 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"
-                  style={{ left: mousePos.x, top: mousePos.y, background: 'radial-gradient(circle, #818cf8, #4f46e5)', boxShadow: '0 0 10px rgba(129,140,248,0.8)' }}
-                />
-                <div
-                  className="fixed w-8 h-8 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-250 ease-out"
-                  style={{ left: mousePos.x, top: mousePos.y, border: '1px solid rgba(124,58,237,0.5)', boxShadow: '0 0 15px rgba(79,70,229,0.15)' }}
-                />
-              </div>
-            )}
+            {/* Custom Cursor — dot snaps, ring trails with lerp */}
+            <div
+              ref={cursorRingRef}
+              className="cursor-ring hidden lg:block"
+              style={{ opacity: 0 }}
+            />
+            <div
+              ref={cursorDotRef}
+              className="cursor-dot hidden lg:block"
+              style={{ opacity: 0 }}
+            />
+
+            {/* Back-to-top button */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
+              aria-label="Back to top"
+            >
+              <svg width="18" height="18" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
+            </button>
           </div>
         }
       />

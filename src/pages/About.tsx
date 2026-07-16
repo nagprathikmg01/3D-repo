@@ -302,7 +302,7 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
             backgroundSize: "50px 50px",
           }}
         />
-        <div className="absolute top-20 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" />
+        <div className="absolute top-20 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] opacity-60 animate-pulse" style={{ animationDelay: "2.5s" }} />
       </div>
 
@@ -333,7 +333,7 @@ Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10).
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center"
         >
-          <div className="p-1 rounded-2xl bg-gradient-to-tr from-indigo-500 via-cyan-500 to-pink-500 shadow-[0_0_40px_rgba(99,102,241,0.25)]">
+          <div className="p-1 rounded-2xl bg-gradient-to-tr from-blue-500 via-cyan-500 to-pink-500 shadow-[0_0_40px_rgba(99,102,241,0.25)]">
             <img
               src="/assets/prathik.jpeg"
               alt="Nag Prathik M G"

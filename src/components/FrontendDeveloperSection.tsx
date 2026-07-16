@@ -38,7 +38,7 @@ export default function FrontendDeveloperSection() {
     >
       {/* Background Floating spotlights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-[10%] right-[10%] w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
@@ -100,7 +100,7 @@ export default function FrontendDeveloperSection() {
             if (tech === "PyTorch") glowColor = "hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:border-red-500/30 hover:text-red-400";
             else if (tech === "Generative AI") glowColor = "hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:border-purple-500/30 hover:text-purple-400";
             else if (tech === "GCP / AWS") glowColor = "hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/30 hover:text-cyan-400";
-            else if (tech === "Agentic AI") glowColor = "hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:text-indigo-400";
+            else if (tech === "Agentic AI") glowColor = "hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:border-blue-500/30 hover:text-blue-400";
             
             return (
               <div

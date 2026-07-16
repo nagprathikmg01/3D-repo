@@ -65,7 +65,7 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
       <div
         className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle 200px at ${glowPos.x}% ${glowPos.y}%, rgba(79,70,229,0.12), transparent 70%)`,
+          background: `radial-gradient(circle 200px at ${glowPos.x}% ${glowPos.y}%, rgba(59,130,246,0.12), transparent 70%)`,
         }}
       />
       {children}
@@ -125,9 +125,9 @@ export default function Showcase() {
     switch (type) {
       case "AI/ML":
         return {
-          badge: "border-indigo-500/30 text-indigo-600 dark:text-indigo-400 bg-indigo-500/8",
-          border: "border-indigo-500/20 dark:border-indigo-500/15 hover:border-indigo-500/60 dark:hover:border-indigo-500/40",
-          accent: "#4f46e5",
+          badge: "border-blue-500/30 text-blue-600 dark:text-blue-400 bg-blue-500/8",
+          border: "border-blue-500/20 dark:border-blue-500/15 hover:border-blue-500/60 dark:hover:border-blue-500/40",
+          accent: "#3b82f6",
         };
       case "Full-Stack":
         return {
@@ -145,7 +145,7 @@ export default function Showcase() {
         return {
           badge: "border-slate-500/20 text-slate-400 bg-slate-500/5",
           border: "border-slate-200 dark:border-surfaceBorder hover:border-primaryBlue",
-          accent: "#4f46e5",
+          accent: "#3b82f6",
         };
     }
   };
@@ -154,7 +154,7 @@ export default function Showcase() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-indigo-500/6 rounded-full blur-[160px]" />
+        <div className="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-blue-500/6 rounded-full blur-[160px]" />
         <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[160px]" />
       </div>
 
@@ -189,7 +189,7 @@ export default function Showcase() {
               onClick={() => setFilter(tab)}
               className={`px-6 py-2.5 rounded-xl text-xs uppercase font-mono tracking-widest border transition-all duration-300 font-bold ${
                 filter === tab
-                  ? "bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white border-transparent shadow-[0_0_20px_rgba(79,70,229,0.3)]"
+                  ? "bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white border-transparent shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                   : "bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-primaryBlue/40 dark:hover:border-primaryBlue/30"
               }`}
             >
@@ -314,7 +314,7 @@ export default function Showcase() {
             href="https://github.com/nagprathikmg01"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-white px-8 py-4 text-xs tracking-[0.25em] uppercase font-bold hover:bg-gradient-to-r hover:from-primaryBlue hover:to-secondaryPurple hover:text-white hover:border-transparent transition-all duration-300 rounded-full hover:shadow-[0_10px_30px_rgba(79,70,229,0.3)] hover:scale-105 active:scale-98"
+            className="group inline-flex items-center gap-3 border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-white px-8 py-4 text-xs tracking-[0.25em] uppercase font-bold hover:bg-gradient-to-r hover:from-primaryBlue hover:to-secondaryPurple hover:text-white hover:border-transparent transition-all duration-300 rounded-full hover:shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-98"
           >
             Explore More on GitHub <ArrowUpRight size={14} />
           </a>

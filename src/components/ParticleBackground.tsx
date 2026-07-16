@@ -10,6 +10,8 @@ export default function ParticleBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     let animationId: number;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -17,18 +19,30 @@ export default function ParticleBackground() {
     const connectionDist = 100;
     const mouse = { x: -1000, y: -1000, radius: 150 };
 
+    // Slow rotation of the entire field around the viewport center
+    const fieldRotationSpeed = 0.0004;
+
+    // 60% blue, 30% purple, 10% cyan
+    const pickColor = () => {
+      const r = Math.random();
+      if (r < 0.6) return "59, 130, 246";
+      if (r < 0.9) return "124, 58, 237";
+      return "6, 182, 212";
+    };
+
     interface IParticle {
       x: number;
       y: number;
       vx: number;
       vy: number;
       radius: number;
+      color: string;
       update: () => void;
       draw: () => void;
     }
 
     const particles: IParticle[] = [];
-    const maxParticles = window.innerWidth < 768 ? 40 : 80;
+    const maxParticles = window.innerWidth < 768 ? 60 : 180;
 
     class Particle implements IParticle {
       x: number;
@@ -36,6 +50,7 @@ export default function ParticleBackground() {
       vx: number;
       vy: number;
       radius: number;
+      color: string;
 
       constructor() {
         this.x = Math.random() * width;
@@ -43,15 +58,27 @@ export default function ParticleBackground() {
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.radius = Math.random() * 2 + 1;
+        this.color = pickColor();
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
+        // Rotate the whole field slowly around the viewport center
+        const cx = width / 2;
+        const cy = height / 2;
+        const dxc = this.x - cx;
+        const dyc = this.y - cy;
+        const cos = Math.cos(fieldRotationSpeed);
+        const sin = Math.sin(fieldRotationSpeed);
+        this.x = cx + dxc * cos - dyc * sin;
+        this.y = cy + dxc * sin + dyc * cos;
+
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
 
+        // Repel particles near the cursor
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.hypot(dx, dy);
@@ -68,7 +95,7 @@ export default function ParticleBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(99, 102, 241, 0.4)";
+        ctx.fillStyle = `rgba(${this.color}, 0.4)`;
         ctx.fill();
       }
     }
@@ -97,7 +124,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(pi.x, pi.y);
             ctx.lineTo(pj.x, pj.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.strokeStyle = `rgba(${pi.color}, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -122,6 +149,12 @@ export default function ParticleBackground() {
       animationId = requestAnimationFrame(animate);
     }
 
+    function drawStatic() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach((p) => p.draw());
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -135,13 +168,18 @@ export default function ParticleBackground() {
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      if (reducedMotion) drawStatic();
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    animate();
+    if (reducedMotion) {
+      drawStatic();
+    } else {
+      animate();
+    }
 
     return () => {
       cancelAnimationFrame(animationId);

@@ -8,17 +8,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Option C — Electric Indigo palette
-        darkBg: "#09090b",          // zinc-950 warm black
-        surface: "#18181b",         // zinc-800 warm card bg
-        surfaceBorder: "#27272a",   // zinc-700 border
-        primaryBlue: "#4f46e5",     // indigo-600 — fresh, not overused
+        // Electric Blue / Purple / Cyan palette
+        darkBg: "#050508",          // deep space black
+        surface: "#0d0d1a",         // dark navy surface
+        surfaceCard: "#111124",     // card background
+        surfaceBorder: "#1e1e3a",   // navy border
+        primaryBlue: "#3b82f6",     // blue-500 primary
         secondaryPurple: "#7c3aed", // violet-600
         accentGreen: "#10b981",     // emerald-500
-        brightTeal: "#22d3ee",      // cyan-400 — brighter highlights
+        brightTeal: "#06b6d4",      // cyan-500 accent
         accentAmber: "#f59e0b",     // amber-500 — badge/tag pops
-        glowIndigo: "#818cf8",      // indigo-400 — glow layer
+        glowIndigo: "#60a5fa",      // blue-400 — glow layer
         glowingMagenta: "#d946ef",  // fuchsia
+        textPrimary: "#f1f5f9",
+        textMuted: "#64748b",
       },
       fontFamily: {
         sans: ["Inter", "Outfit", "sans-serif"],

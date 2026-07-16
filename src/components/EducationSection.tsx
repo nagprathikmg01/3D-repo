@@ -10,7 +10,7 @@ export default function EducationSection() {
       score: "CGPA: 8.5 / 10",
       location: "Bengaluru, Karnataka",
       featured: true,
-      accent: "from-blue-500 to-indigo-500",
+      accent: "from-blue-500 to-blue-500",
     },
     {
       institution: "Ambika PU College",
@@ -37,7 +37,7 @@ export default function EducationSection() {
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-indigo-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
