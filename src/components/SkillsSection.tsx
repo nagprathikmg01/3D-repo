@@ -110,13 +110,21 @@ export default function SkillsSection() {
                 </div>
 
                 <div className="flex flex-wrap gap-2.5">
-                  {category.skills.map((skill) => (
-                    <span
+                  {category.skills.map((skill, sIdx) => (
+                    <motion.span
                       key={skill}
-                      className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold tracking-wide border border-slate-200 dark:border-white/[0.06] bg-white dark:bg-black/25 text-slate-700 dark:text-slate-300 hover:border-primaryBlue/30 hover:text-primaryBlue dark:hover:text-primaryBlue hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-all duration-300 cursor-default"
+                      animate={{
+                        y: [0, -4, 0],
+                      }}
+                      transition={{
+                        duration: 3.2 + (sIdx % 3) * 0.7,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold tracking-wide border border-slate-200 dark:border-white/[0.06] bg-white dark:bg-black/25 text-slate-700 dark:text-slate-300 hover:border-primaryBlue/30 hover:text-primaryBlue dark:hover:text-primaryBlue hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-all duration-300 cursor-default inline-block"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

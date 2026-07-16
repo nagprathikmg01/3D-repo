@@ -163,10 +163,13 @@ export default function Showcase() {
                   exit={{ opacity: 0, scale: 0.95, y: 30 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  className={`rounded-2xl border bg-slate-50/50 dark:bg-surface/50 p-6 flex flex-col justify-between transition-all duration-300 backdrop-blur-md relative ${styles.border}`}
+                  className={`rounded-2xl border bg-slate-50/50 dark:bg-surface/50 p-6 flex flex-col justify-between transition-all duration-300 backdrop-blur-md relative group overflow-hidden ${styles.border}`}
                 >
                   {/* Top line indicator */}
                   <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primaryBlue/10 to-transparent" />
+
+                  {/* Holographic Shimmer Sweep */}
+                  <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
 
                   {/* Header / Badges */}
                   <div>

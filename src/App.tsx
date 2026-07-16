@@ -15,6 +15,36 @@ const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
+const NeuralNetworkSVG = () => (
+  <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id="neuralGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="45" fill="url(#neuralGlow)" />
+    <line x1="20" y1="30" x2="50" y2="20" stroke="#3b82f6" strokeWidth="0.2" className="animate-pulse" />
+    <line x1="50" y1="20" x2="80" y2="35" stroke="#7c3aed" strokeWidth="0.2" />
+    <line x1="80" y1="35" x2="70" y2="70" stroke="#3b82f6" strokeWidth="0.2" />
+    <line x1="70" y1="70" x2="35" y2="80" stroke="#06b6d4" strokeWidth="0.2" className="animate-pulse" />
+    <line x1="35" y1="80" x2="20" y2="30" stroke="#7c3aed" strokeWidth="0.2" />
+    <line x1="20" y1="30" x2="45" y2="55" stroke="#3b82f6" strokeWidth="0.2" />
+    <line x1="50" y1="20" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.2" />
+    <line x1="80" y1="35" x2="45" y2="55" stroke="#06b6d4" strokeWidth="0.2" />
+    <line x1="70" y1="70" x2="45" y2="55" stroke="#3b82f6" strokeWidth="0.2" />
+    <line x1="35" y1="80" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.2" />
+    <circle cx="20" cy="30" r="1.5" fill="#3b82f6" className="animate-ping" style={{ animationDuration: '3s' }} />
+    <circle cx="20" cy="30" r="1" fill="#3b82f6" />
+    <circle cx="50" cy="20" r="1.2" fill="#7c3aed" />
+    <circle cx="80" cy="35" r="1.5" fill="#06b6d4" className="animate-ping" style={{ animationDuration: '4s' }} />
+    <circle cx="80" cy="35" r="1" fill="#06b6d4" />
+    <circle cx="70" cy="70" r="1.2" fill="#3b82f6" />
+    <circle cx="35" cy="80" r="1.5" fill="#7c3aed" className="animate-ping" style={{ animationDuration: '5s' }} />
+    <circle cx="35" cy="80" r="1" fill="#7c3aed" />
+    <circle cx="45" cy="55" r="2" fill="#06b6d4" />
+  </svg>
+);
 
 import ParticleBackground from "@/components/ParticleBackground";
 import WelcomeScreen from "@/components/WelcomeScreen";
@@ -26,10 +56,12 @@ import CertificationsSection from "@/components/CertificationsSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import HeroThree from "@/components/HeroThree";
 
-// Simple robust CountUp using requestAnimationFrame & IntersectionObserver
+// Simple robust CountUp using requestAnimationFrame & IntersectionObserver with glow flash
 function CountUp({ end, suffix = "", duration = 2 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
+  const [flashing, setFlashing] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -42,13 +74,21 @@ function CountUp({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
       setCount(Math.floor(progress * end));
       if (progress < 1) {
         requestAnimationFrame(animate);
+      } else {
+        setFlashing(true);
+        setTimeout(() => setFlashing(false), 800);
       }
     };
     requestAnimationFrame(animate);
   }, [inView, end, duration]);
 
   return (
-    <span ref={ref} className="font-display">
+    <span
+      ref={ref}
+      className={`font-display transition-all duration-300 ${
+        flashing ? "text-white brightness-150 drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]" : ""
+      }`}
+    >
       {count}
       {suffix}
     </span>
@@ -109,6 +149,24 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [cursorVisible, setCursorVisible] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      setCursorVisible(true);
+    };
+    const handleMouseLeave = () => setCursorVisible(false);
+
+    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      window.removeMouseMove = null; // clean up check
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   // Sync dark mode class with html node
   useEffect(() => {
@@ -380,47 +438,14 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right: profile photo & orbit chips */}
-                <div className="lg:col-span-5 flex justify-center relative py-12 lg:py-0">
+                {/* Right: 3D animated crystal mesh with Neural network SVG background */}
+                <div className="lg:col-span-5 flex justify-center relative py-12 lg:py-0 w-full h-[400px] md:h-[450px]">
+                  {/* Neural network SVG background */}
+                  <NeuralNetworkSVG />
                   
-                  {/* Orbital ring */}
-                  <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
-                    {/* Glowing rotating ring */}
-                    <div className="absolute inset-0 rounded-full border-2 border-dashed border-primaryBlue/20 animate-rotate-ring pointer-events-none" />
-                    
-                    {/* Soft background glow */}
-                    <div className="absolute w-[200px] h-[200px] rounded-full bg-gradient-to-r from-primaryBlue/10 to-secondaryPurple/10 blur-3xl pointer-events-none" />
-                    
-                    {/* Portrait Photo */}
-                    <div className="w-[220px] h-[220px] md:w-[250px] md:h-[250px] rounded-full overflow-hidden border-4 border-white dark:border-[#111118] shadow-2xl relative z-10">
-                      <img
-                        src="/profile.jpg"
-                        alt="Nag Prathik M G Portrait"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Orbiting tech badg chips */}
-                    <div className="absolute top-[8%] left-[2%] z-20 animate-float-slow">
-                      <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold border border-blue-500/20 bg-blue-500/5 text-blue-600 dark:text-blue-400 shadow-md">
-                        PyTorch
-                      </span>
-                    </div>
-                    <div className="absolute top-[5%] right-[2%] z-20 animate-float-medium" style={{ animationDelay: "1s" }}>
-                      <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold border border-purple-500/20 bg-purple-500/5 text-purple-600 dark:text-purple-400 shadow-md">
-                        GCP
-                      </span>
-                    </div>
-                    <div className="absolute bottom-[20%] left-[-8%] z-20 animate-float-medium" style={{ animationDelay: "2s" }}>
-                      <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold border border-cyan-500/20 bg-cyan-500/5 text-cyan-600 dark:text-cyan-400 shadow-md">
-                        React
-                      </span>
-                    </div>
-                    <div className="absolute bottom-[10%] right-[-5%] z-20 animate-float-slow" style={{ animationDelay: "1.5s" }}>
-                      <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 shadow-md">
-                        LLMs
-                      </span>
-                    </div>
+                  {/* R3F Canvas */}
+                  <div className="absolute inset-0 z-10 w-full h-full">
+                    <HeroThree />
                   </div>
                 </div>
               </div>
@@ -518,6 +543,20 @@ export default function App() {
 
             {/* Footer */}
             <FooterSection />
+
+            {/* Custom Trailing Cursor */}
+            {cursorVisible && (
+              <div className="hidden lg:block">
+                <div
+                  className="fixed w-2.5 h-2.5 rounded-full bg-primaryBlue pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out mix-blend-difference"
+                  style={{ left: mousePos.x, top: mousePos.y }}
+                />
+                <div
+                  className="fixed w-7 h-7 rounded-full border border-secondaryPurple/60 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"
+                  style={{ left: mousePos.x, top: mousePos.y }}
+                />
+              </div>
+            )}
           </div>
         }
       />

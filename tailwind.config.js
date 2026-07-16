@@ -8,9 +8,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkBg: "#0a0a0f",
-        surface: "#111118",
-        surfaceBorder: "#1e1e2e",
+        darkBg: "#050508",
+        surface: "#0d0d1a",
+        surfaceBorder: "#15152a",
         primaryBlue: "#3b82f6",
         secondaryPurple: "#7c3aed",
         accentGreen: "#10b981",

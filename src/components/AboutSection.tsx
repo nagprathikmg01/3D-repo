@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Award, Briefcase, Sparkles } from "lucide-react";
+import { Sparkles, CheckCircle2 } from "lucide-react";
 import { lazy, Suspense, useState, useEffect } from "react";
 
 const BandCard = lazy(() => import("./BandCard"));
@@ -12,32 +12,15 @@ export default function AboutSection() {
     setMounted(true);
   }, []);
 
-  const highlights = [
-    {
-      icon: GraduationCap,
-      title: "B.E. in Information Science",
-      subtitle: "Nitte Meenakshi Institute of Technology",
-      detail: "Batch: 2023 - 2027 | CGPA: 8.5 / 10",
-      color: "from-blue-500 to-indigo-500",
-    },
-    {
-      icon: Award,
-      title: "Google Student Ambassador",
-      subtitle: "Top 250 Globally recognized",
-      detail: "Selected from thousands of applicants to represent Google developers on campus.",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: Briefcase,
-      title: "AI Sustainability Intern",
-      subtitle: "1M1B - AICTE - IBM SkillsBuild",
-      detail: "Hands-on implementation of machine learning workflows for sustainable AI platforms.",
-      color: "from-emerald-500 to-teal-500",
-    },
+  const bullets = [
+    "Pre-final year Information Science & Engineering student at NMIT, Bangalore.",
+    "Selected as Google Student Ambassador — Top 250 globally recognized community leaders.",
+    "Applied IBM Granite LLMs, Agentic AI, and RAG to UN SDG challenges during IBM AI Internship.",
+    "Proficient in PyTorch, React, Flutter, GCP, and Cloud DevOps practices.",
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-[#050508] text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[100px]" />
@@ -68,29 +51,39 @@ export default function AboutSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column - Bio */}
+          {/* Left Column - Bio & Bullet Highlights */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-6"
+            className="lg:col-span-7 space-y-6"
           >
             <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
               Passionate AI/ML Engineer & Full-Stack Developer
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-sans text-base">
-              I am a pre-final year Information Science & Engineering student at NMIT with a CGPA of 8.5/10. 
-              My passion lies at the intersection of AI, Cloud Architecture, and Web Development. 
-              I build production-grade AI systems, RAG pipelines, and highly interactive Full-Stack applications that feel alive.
-            </p>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-sans text-base">
-              Recognized as a <strong className="text-slate-900 dark:text-white">Top 250 Google Student Ambassador</strong> worldwide, I play an active role in cultivating tech communities, hosting workshops, and leading events. 
-              From model training in PyTorch to secure deployment on AWS & Google Cloud, I focus on delivering scalable, premium digital experiences.
+              I am a pre-final year B.E. Information Science & Engineering student at NMIT, Bangalore with a CGPA of 8.5/10. 
+              My expertise spans the intersection of Artificial Intelligence, Cloud Infrastructure, and Modern Web Development. 
+              I design and build production-ready AI applications, Agentic RAG pipelines, and responsive Full-Stack platforms that solve real-world challenges.
             </p>
 
+            {/* Bullet Highlights */}
+            <div className="space-y-3.5 pt-2">
+              {bullets.map((bullet, idx) => (
+                <div key={idx} className="flex gap-3 items-start">
+                  <div className="text-primaryBlue mt-1 shrink-0">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 font-sans">
+                    {bullet}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             <div className="grid grid-cols-2 gap-6 pt-4">
-              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-[#111118]/50 p-4 rounded-xl backdrop-blur-md">
+              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-surface/50 p-4 rounded-xl backdrop-blur-md">
                 <span className="block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondaryPurple to-primaryBlue font-display">
                   8.5
                 </span>
@@ -98,7 +91,7 @@ export default function AboutSection() {
                   CGPA Score
                 </span>
               </div>
-              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-[#111118]/50 p-4 rounded-xl backdrop-blur-md">
+              <div className="border border-slate-200 dark:border-surfaceBorder bg-slate-100/50 dark:bg-surface/50 p-4 rounded-xl backdrop-blur-md">
                 <span className="block text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue to-brightTeal font-display">
                   Top 250
                 </span>
@@ -108,7 +101,7 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="pt-4 flex flex-wrap gap-4">
+            <div className="pt-4">
               <button
                 onClick={() => {
                   setShowCard(true);
@@ -123,39 +116,34 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right Column - Highlight Cards */}
+          {/* Right Column - Profile Image with rotating ring */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-6"
+            className="lg:col-span-5 flex justify-center relative py-12"
           >
-            {highlights.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -5 }}
-                  className="flex gap-5 p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/40 hover:border-slate-300 dark:hover:border-slate-800 hover:shadow-lg hover:shadow-primaryBlue/5 transition-all duration-300 backdrop-blur-md"
-                >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.color} text-white shadow-lg shrink-0`}>
-                    <Icon size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-primaryBlue font-semibold mb-2">
-                      {item.subtitle}
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      {item.detail}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {/* Rotating border container */}
+            <div className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
+              {/* Outer rotating gradient ring */}
+              <div className="absolute inset-0 rounded-full border-4 border-dashed border-primaryBlue/35 animate-rotate-ring pointer-events-none" />
+              
+              {/* Secondary rotating accent ring */}
+              <div className="absolute inset-[6px] rounded-full border border-dashed border-secondaryPurple/30 animate-[rotate-ring_12s_linear_infinite_reverse] pointer-events-none" />
+              
+              {/* Background glow shadow */}
+              <div className="absolute w-[180px] h-[180px] rounded-full bg-gradient-to-r from-primaryBlue/15 to-secondaryPurple/15 blur-3xl pointer-events-none" />
+              
+              {/* Image Frame */}
+              <div className="w-[200px] h-[200px] md:w-[230px] md:h-[230px] rounded-full overflow-hidden border-[6px] border-white dark:border-[#0d0d1a] shadow-2xl relative z-10">
+                <img
+                  src="/profile.jpg"
+                  alt="Nag Prathik M G Portrait"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
