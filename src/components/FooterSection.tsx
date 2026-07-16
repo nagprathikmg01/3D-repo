@@ -41,7 +41,7 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="relative border-t border-slate-200 dark:border-surfaceBorder bg-slate-100 dark:bg-[#08080c] py-12 px-6 md:px-12 transition-colors duration-300">
+    <footer className="relative border-t border-slate-200 dark:border-surfaceBorder bg-slate-100 dark:bg-[#04080f] py-12 px-6 md:px-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Left Side: Copyright */}

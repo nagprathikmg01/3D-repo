@@ -138,7 +138,7 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-secondaryPurple/35 hover:shadow-lg hover:shadow-secondaryPurple/5 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-purple-500/10 text-secondaryPurple group-hover:bg-secondaryPurple group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10 text-secondaryPurple group-hover:bg-secondaryPurple group-hover:text-white transition-all duration-300">
                   <LinkedinIcon size={18} />
                 </div>
                 <div>

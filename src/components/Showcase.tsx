@@ -125,27 +125,27 @@ export default function Showcase() {
     switch (type) {
       case "AI/ML":
         return {
-          badge: "border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/8",
-          border: "border-emerald-500/20 dark:border-emerald-500/15 hover:border-emerald-500/60 dark:hover:border-emerald-500/40",
-          accent: "#10b981",
+          badge: "border-sky-500/30 text-sky-600 dark:text-sky-400 bg-sky-500/8",
+          border: "border-sky-500/20 dark:border-sky-500/15 hover:border-sky-500/60 dark:hover:border-sky-500/40",
+          accent: "#0ea5e9",
         };
       case "Full-Stack":
         return {
-          badge: "border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/8",
-          border: "border-amber-500/20 dark:border-amber-500/15 hover:border-amber-500/60 dark:hover:border-amber-500/40",
-          accent: "#d4a017",
+          badge: "border-teal-500/30 text-teal-600 dark:text-teal-400 bg-teal-500/8",
+          border: "border-teal-500/20 dark:border-teal-500/15 hover:border-teal-500/60 dark:hover:border-teal-500/40",
+          accent: "#0d9488",
         };
       case "Cloud":
         return {
-          badge: "border-yellow-500/30 text-yellow-600 dark:text-yellow-400 bg-yellow-500/8",
-          border: "border-yellow-500/20 dark:border-yellow-500/15 hover:border-yellow-500/60 dark:hover:border-yellow-500/40",
+          badge: "border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/8",
+          border: "border-amber-500/20 dark:border-amber-500/15 hover:border-amber-500/60 dark:hover:border-amber-500/40",
           accent: "#f59e0b",
         };
       default:
         return {
           badge: "border-slate-500/20 text-slate-400 bg-slate-500/5",
           border: "border-slate-200 dark:border-surfaceBorder hover:border-primaryBlue",
-          accent: "#10b981",
+          accent: "#0ea5e9",
         };
     }
   };
@@ -154,8 +154,8 @@ export default function Showcase() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-emerald-500/6 rounded-full blur-[160px]" />
-        <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[160px]" />
+        <div className="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-sky-500/6 rounded-full blur-[160px]" />
+        <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[160px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

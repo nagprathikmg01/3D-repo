@@ -23,8 +23,8 @@ export default function AboutSection() {
     <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-sky-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

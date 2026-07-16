@@ -34,12 +34,12 @@ export default function FrontendDeveloperSection() {
           : { x: 0, scale: 1, opacity: 1, filter: "blur(0px)" }
       }
       transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full min-h-screen bg-[#020617] text-white overflow-hidden flex items-start px-6 md:px-20 pt-16 md:pt-28 select-none"
+      className="relative w-full min-h-screen bg-[#04080f] text-white overflow-hidden flex items-start px-6 md:px-20 pt-16 md:pt-28 select-none"
     >
       {/* Background Floating spotlights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[30%] left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[10%] w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] right-[10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px]" />
       </div>
 
       {/* TEXT */}
@@ -48,14 +48,14 @@ export default function FrontendDeveloperSection() {
           <motion.span
             animate={{ width: ["0ch", "32ch", "32ch", "0ch"] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 0.8, 1] }}
-            className="inline-block overflow-hidden whitespace-nowrap text-[11px] tracking-[0.3em] uppercase text-cyan-400/80 font-mono font-bold"
+            className="inline-block overflow-hidden whitespace-nowrap text-[11px] tracking-[0.3em] uppercase text-sky-400/80 font-mono font-bold"
           >
             Google Student Ambassador
           </motion.span>
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="text-cyan-400 font-mono ml-[2px]"
+            className="text-sky-400 font-mono ml-[2px]"
           >
             |
           </motion.span>
@@ -97,10 +97,10 @@ export default function FrontendDeveloperSection() {
         >
           {["PyTorch", "Generative AI", "GCP / AWS", "Agentic AI"].map((tech) => {
             let glowColor = "hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/20";
-            if (tech === "PyTorch") glowColor = "hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:border-red-500/30 hover:text-red-400";
-            else if (tech === "Generative AI") glowColor = "hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:border-purple-500/30 hover:text-purple-400";
-            else if (tech === "GCP / AWS") glowColor = "hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/30 hover:text-cyan-400";
-            else if (tech === "Agentic AI") glowColor = "hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:border-blue-500/30 hover:text-blue-400";
+            if (tech === "PyTorch") glowColor = "hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:border-amber-500/30 hover:text-amber-400";
+            else if (tech === "Generative AI") glowColor = "hover:shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:border-sky-500/30 hover:text-sky-400";
+            else if (tech === "GCP / AWS") glowColor = "hover:shadow-[0_0_20px_rgba(13,148,136,0.15)] hover:border-teal-500/30 hover:text-teal-400";
+            else if (tech === "Agentic AI") glowColor = "hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:border-amber-500/30 hover:text-amber-400";
             
             return (
               <div

@@ -5,15 +5,15 @@ import { Sparkles, OrbitControls } from "@react-three/drei";
 
 // ── CONFIG ──────────────────────────────────────────────────
 const LAYERS = [4, 6, 6, 5, 3];   // neurons per layer
-const LAYER_GAP = 1.4;             // horizontal spacing
-const NEURON_RADIUS = 0.12;
+const LAYER_GAP = 2.2;             // horizontal spacing (was 1.4)
+const NEURON_RADIUS = 0.15;        // scaled up slightly (was 0.12)
 const COLORS = {
-  neuron_idle:   0x064e3b,   /* dark emerald */
-  neuron_active: 0x10b981,   /* emerald green */
-  neuron_fired:  0xd4a017,   /* gold flash */
-  connection:    0x0a2e1a,   /* dark green connection */
-  signal:        0xf59e0b,   /* amber gold signal particle */
-  output:        0xfbbf24,   /* bright gold output */
+  neuron_idle:   0x0d2137,   /* dark navy */
+  neuron_active: 0x0ea5e9,   /* sky blue */
+  neuron_fired:  0xf59e0b,   /* gold flash */
+  connection:    0x0a1929,   /* very dark blue */
+  signal:        0x0d9488,   /* teal signal */
+  output:        0xf59e0b,   /* gold output */
 };
 
 interface Neuron {
@@ -79,6 +79,8 @@ function NeuralNetwork() {
           emissiveIntensity: 0,
           roughness: 0.3,
           metalness: 0.7,
+          transparent: true,
+          opacity: 0.7,
         });
         const mesh = new THREE.Mesh(geo, mat);
 
@@ -93,7 +95,7 @@ function NeuralNetwork() {
         // Glow ring around each neuron
         const ringGeo = new THREE.TorusGeometry(NEURON_RADIUS * 1.8, 0.008, 8, 32);
         const ringMat = new THREE.MeshBasicMaterial({
-          color: 0x10b981,
+          color: 0x0ea5e9,
           transparent: true,
           opacity: 0.0,
         });
@@ -125,7 +127,7 @@ function NeuralNetwork() {
             const mat = new THREE.LineBasicMaterial({
               color: COLORS.connection,
               transparent: true,
-              opacity: 0.25,
+              opacity: 0.15,
             });
             const line = new THREE.Line(geo, mat);
             group.add(line);
@@ -217,10 +219,10 @@ function NeuralNetwork() {
         n.fireTimer += d;
         const t = Math.min(n.fireTimer / 0.5, 1);
 
-        // Pulse color emerald → gold → back
-        n.mat.emissive.setHex(0x10b981);
+        // Pulse color sky blue → gold → back
+        n.mat.emissive.setHex(0x0ea5e9);
         n.mat.emissiveIntensity = t < 0.5 ? t * 2 : (1 - t) * 2;
-        n.mat.color.setHex(t < 0.5 ? 0x10b981 : 0xd4a017);
+        n.mat.color.setHex(t < 0.5 ? 0x0ea5e9 : 0xf59e0b);
 
         // Ring glow
         const ringMat = n.ring.material as THREE.MeshBasicMaterial;
@@ -281,22 +283,22 @@ function NetworkLights() {
   return (
     <>
       <ambientLight color="#0a0a1a" intensity={1} />
-      <pointLight ref={blueLightRef} position={[3, 2, 3]} intensity={3} color="#10b981" distance={10} />
-      <pointLight ref={purpleLightRef} position={[-3, -2, -2]} intensity={2} color="#d4a017" distance={10} />
-      <pointLight position={[0, 3, 1]} intensity={1.5} color="#34d399" distance={8} />
+      <pointLight ref={blueLightRef} position={[3, 2, 3]} intensity={3} color="#0ea5e9" distance={10} />
+      <pointLight ref={purpleLightRef} position={[-3, -2, -2]} intensity={2} color="#0d9488" distance={10} />
+      <pointLight position={[0, 3, 1]} intensity={1.5} color="#f59e0b" distance={8} />
     </>
   );
 }
 
-export default function HeroThree() {
+export default function HeroThree({ className = "w-full h-full" }: { className?: string }) {
   return (
-    <div className="w-full h-[400px] md:h-[450px] relative">
+    <div className={`${className} relative`}>
       <Suspense fallback={
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-16 h-16 rounded-full border-4 border-dashed border-primaryBlue animate-spin" />
         </div>
       }>
-        <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }}>
+        <Canvas camera={{ position: [0, 0, 7], fov: 65 }}>
           <NetworkLights />
           <NeuralNetwork />
 
@@ -306,14 +308,14 @@ export default function HeroThree() {
             scale={4.5}
             size={3.5}
             speed={0.4}
-            color="#34d399"
+            color="#38bdf8"
           />
           <Sparkles
             count={60}
             scale={5}
             size={2}
             speed={0.2}
-            color="#d4a017"
+            color="#f59e0b"
           />
 
           <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />

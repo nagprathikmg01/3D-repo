@@ -8,8 +8,8 @@ export default function ExperienceSection() {
       company: "1M1B – AICTE – IBM SkillsBuild",
       duration: "Dec 2025 – Jan 2026",
       icon: Briefcase,
-      color: "from-emerald-500 to-teal-500",
-      glow: "rgba(16,185,129,0.15)",
+      color: "from-teal-500 to-teal-600",
+      glow: "rgba(13,148,136,0.15)",
       description: "Applied IBM Granite LLMs, Agentic AI, and RAG to UN SDG challenges. Co-certified by AICTE & IBM SkillsBuild.",
     },
     {
@@ -17,8 +17,8 @@ export default function ExperienceSection() {
       company: "Google Developers",
       duration: "Jul 2025 – Present",
       icon: Award,
-      color: "from-blue-500 to-blue-500",
-      glow: "rgba(59,130,246,0.15)",
+      color: "from-sky-500 to-sky-500",
+      glow: "rgba(14,165,233,0.15)",
       description: "Conducted 5+ workshops on GCP & GenAI for 100+ students. Co-organised 2 hackathons with Google.",
     },
     {
@@ -26,8 +26,8 @@ export default function ExperienceSection() {
       company: "IEEE Computer Society Student Chapter – NMIT",
       duration: "Jan 2026 – Present",
       icon: Star,
-      color: "from-purple-500 to-pink-500",
-      glow: "rgba(168,85,247,0.15)",
+      color: "from-teal-500 to-sky-500",
+      glow: "rgba(13,148,136,0.15)",
       description: "Leading branding, marketing outreach, and event visibility campaigns for technical conferences, competitions, and code challenges.",
     },
     {
@@ -35,8 +35,8 @@ export default function ExperienceSection() {
       company: "Team Adwaitha | DataWiz | CloudZilla NMIT",
       duration: "Dec 2024 – Present",
       icon: Compass,
-      color: "from-orange-500 to-amber-500",
-      glow: "rgba(249,115,22,0.15)",
+      color: "from-amber-500 to-yellow-500",
+      glow: "rgba(245,158,11,0.15)",
       description: "Organized 6+ technical events with 200+ participants each.",
     },
   ];

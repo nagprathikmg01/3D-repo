@@ -450,7 +450,7 @@ export default function App() {
             {/* Hero Section */}
             <section
               id="Home"
-              className="gradient-mesh-bg relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg overflow-hidden"
+              className="gradient-mesh-bg hero-section relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg overflow-hidden"
             >
               {/* Background depth: animated blobs + grid overlay */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -464,6 +464,11 @@ export default function App() {
                 <div className="hero-bg-blob-2" />
                 {/* Subtle animated grid overlay */}
                 <div className="hero-grid" />
+              </div>
+
+              {/* Full-Screen Neural Network Background Layer */}
+              <div className="absolute inset-0 w-full h-full z-0 opacity-25 md:opacity-55 pointer-events-none">
+                <HeroThree className="neural-canvas" />
               </div>
 
               <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -554,11 +559,6 @@ export default function App() {
                   {/* Neural network SVG background */}
                   <NeuralNetworkSVG />
                   
-                  {/* R3F Canvas */}
-                  <div className="absolute inset-0 z-10 w-full h-full">
-                    <HeroThree />
-                  </div>
-
                   {/* Floating ML stat chips */}
                   <div className="ml-chip" style={{ top: "10%", right: "0%" }}>
                     <span className="chip-dot"></span> Accuracy: 92%
