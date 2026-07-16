@@ -7,31 +7,31 @@ export default function SkillsSection() {
       title: "AI / ML",
       icon: Brain,
       color: "border-purple-500/30 text-purple-600 dark:text-purple-400 bg-purple-500/5",
-      skills: ["PyTorch", "TensorFlow", "Generative AI", "LLMs", "RAG Pipelines", "Agentic AI", "Computer Vision", "NLP"],
+      skills: ["PyTorch", "Transformers", "LLMs", "RAG", "Agentic AI", "NLP", "Generative AI", "Gemini API", "Vertex AI", "Prompt Engineering", "Streamlit"],
     },
     {
       title: "Full-Stack / Web",
       icon: Cpu,
       color: "border-blue-500/30 text-blue-600 dark:text-blue-400 bg-blue-500/5",
-      skills: ["React", "TypeScript", "Next.js", "Node.js", "Express.js", "Flutter", "Tailwind CSS", "Redux"],
+      skills: ["Flutter", "React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "REST APIs", "TypeScript", "Prisma"],
     },
     {
       title: "Cloud & DevOps",
       icon: Cloud,
       color: "border-cyan-500/30 text-cyan-600 dark:text-cyan-400 bg-cyan-500/5",
-      skills: ["GCP", "AWS", "Docker", "Terraform", "CI/CD Pipelines", "Git & GitHub", "Vercel", "Linux"],
+      skills: ["GCP", "AWS (EC2, S3, IAM)", "Terraform", "Firebase", "Docker", "GitHub", "Vercel", "CI/CD", "NVIDIA NIM"],
     },
     {
       title: "Databases",
       icon: Database,
       color: "border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/5",
-      skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Firebase", "Vector Databases (Pinecone)"],
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Firestore"],
     },
     {
       title: "Languages",
       icon: Code2,
       color: "border-orange-500/30 text-orange-600 dark:text-orange-400 bg-orange-500/5",
-      skills: ["Python", "Dart", "C++", "Java", "JavaScript", "SQL", "HTML & CSS"],
+      skills: ["Python", "Java", "JavaScript", "TypeScript", "Dart", "C", "SQL"],
     },
   ];
 

@@ -73,7 +73,7 @@ export default function FooterSection() {
             <LinkedinIcon size={16} />
           </a>
           <a
-            href="mailto:nagprathikmg01@gmail.com"
+            href="mailto:nagprathikmg@gmail.com"
             className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
           >
             <Mail size={16} />

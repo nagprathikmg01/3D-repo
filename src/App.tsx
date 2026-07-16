@@ -320,16 +320,16 @@ export default function App() {
                   <h3 className="text-xl md:text-2xl font-bold font-mono tracking-wide h-[40px]">
                     <Typewriter
                       words={[
-                        "AI/ML Engineer",
-                        "Full-Stack Developer",
-                        "Google Ambassador · Top 250 Globally",
                         "Building AI-Powered Products",
+                        "Full-Stack + AI/ML Engineer",
+                        "Google Student Ambassador · Top 250 Globally",
+                        "Cloud · React · Flutter · PyTorch",
                       ]}
                     />
                   </h3>
 
                   <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed font-sans max-w-xl">
-                    Pre-final year Information Science & Engineering student at NMIT (CGPA: 8.5/10). Hands-on experience building production-grade AI applications, scalable full-stack platforms, LLM-powered systems, RAG pipelines, and cloud architectures. Globally recognized as a Top 250 Google Student Ambassador.
+                    Pre-final year B.E. Information Science & Engineering student at NMIT, Bangalore (CGPA 8.5/10). Google Student Ambassador ranked Top 250 Globally. Nationally selected IBM AI Intern (AICTE + IBM SkillsBuild). I build production-grade AI systems, cross-platform apps, and cloud-native solutions.
                   </p>
 
                   {/* Buttons */}
@@ -372,7 +372,7 @@ export default function App() {
                       <LinkedinIcon size={18} />
                     </a>
                     <a
-                      href="mailto:nagprathikmg01@gmail.com"
+                      href="mailto:nagprathikmg@gmail.com"
                       className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-white/60 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/30 transition-all duration-300"
                     >
                       <Mail size={18} />

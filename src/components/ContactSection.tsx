@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send, Download } from "lucide-react";
+import { Mail, Send, Download, Phone } from "lucide-react";
 
 const GithubIcon = ({ size = 16 }: { size?: number }) => (
   <svg className="fill-current" width={size} height={size} viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default function ContactSection() {
             {/* Social Channels */}
             <div className="space-y-4">
               <a
-                href="mailto:nagprathikmg01@gmail.com"
+                href="mailto:nagprathikmg@gmail.com"
                 className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-primaryBlue/35 hover:shadow-lg hover:shadow-primaryBlue/5 transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-500/10 text-primaryBlue group-hover:bg-primaryBlue group-hover:text-white transition-all duration-300">
@@ -115,7 +115,20 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">Email</p>
-                  <p className="text-sm font-bold text-slate-800 dark:text-slate-200">nagprathikmg01@gmail.com</p>
+                  <p className="text-sm font-bold text-slate-800 dark:text-slate-200">nagprathikmg@gmail.com</p>
+                </div>
+              </a>
+
+              <a
+                href="tel:+918892686763"
+                className="group flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-surfaceBorder bg-white/40 dark:bg-[#111118]/45 hover:border-brightTeal/35 hover:shadow-lg hover:shadow-brightTeal/5 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10 text-brightTeal group-hover:bg-brightTeal group-hover:text-white transition-all duration-300">
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-widest uppercase">Phone</p>
+                  <p className="text-sm font-bold text-slate-800 dark:text-slate-200">+91-88926-86763</p>
                 </div>
               </a>
 
