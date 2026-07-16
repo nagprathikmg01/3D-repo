@@ -54,11 +54,11 @@ export default function SkillsSection() {
   };
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background spotlights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[30%] right-[-10%] w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[110px]" />
-        <div className="absolute bottom-[10%] left-[-10%] w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[30%] right-[-10%] w-[400px] h-[400px] bg-violet-500/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[350px] h-[350px] bg-indigo-500/5 rounded-full blur-[110px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -68,7 +68,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-glowIndigo font-bold"
           >
             My Tech Stack
           </motion.p>
@@ -81,7 +81,7 @@ export default function SkillsSection() {
           >
             Skills & Expertise
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue to-brightTeal mx-auto mt-4 rounded-full" />
+          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal mx-auto mt-4 rounded-full" />
         </div>
 
         <motion.div
@@ -98,7 +98,7 @@ export default function SkillsSection() {
                 key={idx}
                 variants={cardVariants}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-slate-50/50 dark:bg-surface/50 hover:border-slate-300 dark:hover:border-slate-800 hover:shadow-xl hover:shadow-primaryBlue/5 transition-all duration-300 backdrop-blur-md"
+                className="p-6 rounded-2xl border border-slate-200 dark:border-surfaceBorder bg-slate-50/50 dark:bg-surface/50 hover:border-indigo-500/30 dark:hover:border-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`p-3 rounded-xl border ${category.color}`}>
@@ -113,15 +113,13 @@ export default function SkillsSection() {
                   {category.skills.map((skill, sIdx) => (
                     <motion.span
                       key={skill}
-                      animate={{
-                        y: [0, -4, 0],
-                      }}
+                      animate={{ y: [0, -4, 0] }}
                       transition={{
                         duration: 3.2 + (sIdx % 3) * 0.7,
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
-                      className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold tracking-wide border border-slate-200 dark:border-white/[0.06] bg-white dark:bg-black/25 text-slate-700 dark:text-slate-300 hover:border-primaryBlue/30 hover:text-primaryBlue dark:hover:text-primaryBlue hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-all duration-300 cursor-default inline-block"
+                      className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold tracking-wide border border-slate-200 dark:border-white/[0.06] bg-white dark:bg-black/25 text-slate-700 dark:text-slate-300 hover:border-primaryBlue/40 hover:text-primaryBlue dark:hover:text-glowIndigo hover:shadow-[0_0_15px_rgba(79,70,229,0.15)] hover:bg-indigo-50 dark:hover:bg-indigo-500/5 transition-all duration-300 cursor-default inline-block"
                     >
                       {skill}
                     </motion.span>

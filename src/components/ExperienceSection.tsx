@@ -42,11 +42,11 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-300">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-indigo-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-pink-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-indigo-500/6 rounded-full blur-[110px]" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-violet-500/5 rounded-full blur-[110px]" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -56,7 +56,7 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-primaryBlue font-bold"
+            className="text-xs font-mono uppercase tracking-[0.25em] text-glowIndigo font-bold"
           >
             My Journey
           </motion.p>
@@ -69,7 +69,7 @@ export default function ExperienceSection() {
           >
             Work & Leadership
           </motion.h2>
-          <div className="h-[3px] w-20 bg-gradient-to-r from-secondaryPurple to-primaryBlue mx-auto mt-4 rounded-full" />
+          <div className="h-[3px] w-20 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Vertical Timeline */}
@@ -90,9 +90,11 @@ export default function ExperienceSection() {
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Circle Node on Line */}
-                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-slate-300 dark:border-surfaceBorder bg-white dark:bg-[#0a0a0f] flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(0,0,0,0.1)]">
-                    <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${exp.color} animate-pulse`} />
+                  {/* Circle Node on Line with pulsing glow ring */}
+                  <div className="absolute left-6 md:left-1/2 w-8 h-8 rounded-full border border-indigo-500/30 dark:border-indigo-500/20 bg-white dark:bg-darkBg flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(79,70,229,0.2)]">
+                    {/* Outer ping ring */}
+                    <span className="absolute w-8 h-8 rounded-full bg-indigo-500/10 animate-ping" style={{ animationDuration: '2.5s' }} />
+                    <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${exp.color}`} />
                   </div>
 
                   {/* Content Card */}

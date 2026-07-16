@@ -19,30 +19,31 @@ const NeuralNetworkSVG = () => (
   <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
       <radialGradient id="neuralGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
-        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+        <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.3" />
+        <stop offset="60%" stopColor="#7c3aed" stopOpacity="0.1" />
+        <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
       </radialGradient>
     </defs>
     <circle cx="50" cy="50" r="45" fill="url(#neuralGlow)" />
-    <line x1="20" y1="30" x2="50" y2="20" stroke="#3b82f6" strokeWidth="0.2" className="animate-pulse" />
-    <line x1="50" y1="20" x2="80" y2="35" stroke="#7c3aed" strokeWidth="0.2" />
-    <line x1="80" y1="35" x2="70" y2="70" stroke="#3b82f6" strokeWidth="0.2" />
-    <line x1="70" y1="70" x2="35" y2="80" stroke="#06b6d4" strokeWidth="0.2" className="animate-pulse" />
-    <line x1="35" y1="80" x2="20" y2="30" stroke="#7c3aed" strokeWidth="0.2" />
-    <line x1="20" y1="30" x2="45" y2="55" stroke="#3b82f6" strokeWidth="0.2" />
-    <line x1="50" y1="20" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.2" />
-    <line x1="80" y1="35" x2="45" y2="55" stroke="#06b6d4" strokeWidth="0.2" />
-    <line x1="70" y1="70" x2="45" y2="55" stroke="#3b82f6" strokeWidth="0.2" />
-    <line x1="35" y1="80" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.2" />
-    <circle cx="20" cy="30" r="1.5" fill="#3b82f6" className="animate-ping" style={{ animationDuration: '3s' }} />
-    <circle cx="20" cy="30" r="1" fill="#3b82f6" />
+    <line x1="20" y1="30" x2="50" y2="20" stroke="#818cf8" strokeWidth="0.25" className="animate-pulse" />
+    <line x1="50" y1="20" x2="80" y2="35" stroke="#7c3aed" strokeWidth="0.25" />
+    <line x1="80" y1="35" x2="70" y2="70" stroke="#4f46e5" strokeWidth="0.25" />
+    <line x1="70" y1="70" x2="35" y2="80" stroke="#22d3ee" strokeWidth="0.25" className="animate-pulse" />
+    <line x1="35" y1="80" x2="20" y2="30" stroke="#7c3aed" strokeWidth="0.25" />
+    <line x1="20" y1="30" x2="45" y2="55" stroke="#4f46e5" strokeWidth="0.25" />
+    <line x1="50" y1="20" x2="45" y2="55" stroke="#818cf8" strokeWidth="0.25" />
+    <line x1="80" y1="35" x2="45" y2="55" stroke="#22d3ee" strokeWidth="0.25" />
+    <line x1="70" y1="70" x2="45" y2="55" stroke="#4f46e5" strokeWidth="0.25" />
+    <line x1="35" y1="80" x2="45" y2="55" stroke="#7c3aed" strokeWidth="0.25" />
+    <circle cx="20" cy="30" r="1.5" fill="#818cf8" className="animate-ping" style={{ animationDuration: '3s' }} />
+    <circle cx="20" cy="30" r="1" fill="#4f46e5" />
     <circle cx="50" cy="20" r="1.2" fill="#7c3aed" />
-    <circle cx="80" cy="35" r="1.5" fill="#06b6d4" className="animate-ping" style={{ animationDuration: '4s' }} />
-    <circle cx="80" cy="35" r="1" fill="#06b6d4" />
-    <circle cx="70" cy="70" r="1.2" fill="#3b82f6" />
+    <circle cx="80" cy="35" r="1.5" fill="#22d3ee" className="animate-ping" style={{ animationDuration: '4s' }} />
+    <circle cx="80" cy="35" r="1" fill="#22d3ee" />
+    <circle cx="70" cy="70" r="1.2" fill="#4f46e5" />
     <circle cx="35" cy="80" r="1.5" fill="#7c3aed" className="animate-ping" style={{ animationDuration: '5s' }} />
     <circle cx="35" cy="80" r="1" fill="#7c3aed" />
-    <circle cx="45" cy="55" r="2" fill="#06b6d4" />
+    <circle cx="45" cy="55" r="2" fill="#818cf8" />
   </svg>
 );
 
@@ -86,7 +87,7 @@ function CountUp({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
     <span
       ref={ref}
       className={`font-display transition-all duration-300 ${
-        flashing ? "text-white brightness-150 drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]" : ""
+        flashing ? "text-white brightness-150 drop-shadow-[0_0_15px_rgba(129,140,248,0.9)]" : ""
       }`}
     >
       {count}
@@ -126,7 +127,7 @@ function Typewriter({ words, delay = 100, period = 2000 }: { words: string[]; de
   }, [currentText, isDeleting, currentWordIndex, words, delay, period]);
 
   return (
-    <span className="border-r-2 border-primaryBlue pr-1 text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal">
+    <span className="border-r-2 border-glowIndigo pr-1 text-transparent bg-clip-text bg-gradient-to-r from-glowIndigo via-primaryBlue to-brightTeal">
       {currentText}
     </span>
   );
@@ -244,12 +245,12 @@ export default function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0f] text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden relative font-sans">
+          <div className="min-h-screen bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden relative font-sans">
             
             {/* Scroll Indicator */}
             <div
-              className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-secondaryPurple via-primaryBlue to-brightTeal z-[100] transition-all duration-100 ease-out"
-              style={{ width: `${scrollProgress * 100}%` }}
+              className="fixed top-0 left-0 h-[2px] z-[100] transition-all duration-100 ease-out"
+              style={{ width: `${scrollProgress * 100}%`, background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #22d3ee)' }}
             />
 
             {/* Mesh Background */}
@@ -259,11 +260,11 @@ export default function App() {
             <AnimatePresence>{showWelcome && <WelcomeScreen />}</AnimatePresence>
 
             {/* Navbar */}
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4.5 backdrop-blur-2xl bg-white/60 dark:bg-[#0a0a0f]/45 border-b border-slate-200/50 dark:border-surfaceBorder/50 shadow-sm dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)] transition-all duration-300">
+            <nav className="nav-gradient-border fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4.5 backdrop-blur-3xl bg-white/70 dark:bg-[#09090b]/60 shadow-sm dark:shadow-[0_4px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
               
               {/* Logo Initials */}
               <div className="flex items-center gap-3">
-                <span className="text-lg tracking-widest font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-secondaryPurple to-primaryBlue font-display">
+                <span className="text-lg tracking-widest font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-glowIndigo via-primaryBlue to-brightTeal font-display">
                   NPM G
                 </span>
               </div>
@@ -277,15 +278,19 @@ export default function App() {
                       playClickSound();
                       document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className={`relative hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer py-1.5 ${
-                      activeSection === section.id ? "text-primaryBlue dark:text-primaryBlue font-black" : ""
+                    className={`relative hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer py-1.5 flex items-center gap-1.5 ${
+                      activeSection === section.id ? "text-primaryBlue dark:text-glowIndigo font-black" : ""
                     }`}
                   >
+                    {activeSection === section.id && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-primaryBlue animate-glow-pulse inline-block" />
+                    )}
                     {section.label}
                     {activeSection === section.id && (
                       <motion.div
                         layoutId="activeNavLine"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-primaryBlue"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+                        style={{ background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #22d3ee)' }}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -338,7 +343,7 @@ export default function App() {
                           setMobileMenu(false);
                         }}
                         className={`hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer ${
-                          activeSection === section.id ? "text-primaryBlue dark:text-primaryBlue" : ""
+                          activeSection === section.id ? "text-primaryBlue dark:text-glowIndigo" : ""
                         }`}
                       >
                         {section.label}
@@ -352,12 +357,13 @@ export default function App() {
             {/* Hero Section */}
             <section
               id="Home"
-              className="relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-[#0a0a0f] overflow-hidden"
+              className="gradient-mesh-bg relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-slate-50 dark:bg-darkBg overflow-hidden"
             >
               {/* Background Spots */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-[10%] left-[20%] w-[450px] h-[450px] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-[140px]" />
-                <div className="absolute bottom-[10%] right-[15%] w-[400px] h-[400px] bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-[120px]" />
+                <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-indigo-500/8 dark:bg-indigo-600/12 rounded-full blur-[160px]" />
+                <div className="absolute bottom-[10%] right-[15%] w-[450px] h-[450px] bg-violet-500/6 dark:bg-violet-500/10 rounded-full blur-[140px]" />
+                <div className="absolute top-[50%] right-[30%] w-[300px] h-[300px] bg-cyan-400/4 dark:bg-cyan-400/7 rounded-full blur-[100px]" />
               </div>
 
               <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -370,7 +376,7 @@ export default function App() {
                     Open to Internships
                   </div>
 
-                  <h1 className="text-5xl md:text-6xl xl:text-7xl font-black font-display tracking-tight text-slate-950 dark:text-white leading-tight">
+                  <h1 className="text-5xl md:text-6xl xl:text-7xl font-black font-display tracking-tight leading-tight shimmer-text">
                     NAG PRATHIK M G
                   </h1>
 
@@ -397,7 +403,7 @@ export default function App() {
                         playClickSound();
                         document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-primaryBlue to-secondaryPurple text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:shadow-[0_10px_25px_rgba(59,130,246,0.35)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-brightTeal text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:shadow-[0_10px_30px_rgba(79,70,229,0.4)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                     >
                       View Projects <ArrowUpRight size={16} />
                     </button>
@@ -456,7 +462,7 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 items-center text-center">
                 
                 <div className="space-y-1">
-                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-secondaryPurple to-primaryBlue font-display">
+                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-glowIndigo to-primaryBlue font-display">
                     #<CountUp end={250} />
                   </p>
                   <p className="text-[10px] tracking-widest font-mono text-slate-500 uppercase font-bold">
@@ -465,7 +471,7 @@ export default function App() {
                 </div>
 
                 <div className="border-l border-slate-200 dark:border-surfaceBorder space-y-1">
-                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue to-brightTeal font-display">
+                  <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue to-brightTeal font-display" style={{color: undefined}}>
                     <CountUp end={15} />+
                   </p>
                   <p className="text-[10px] tracking-widest font-mono text-slate-500 uppercase font-bold">
@@ -548,12 +554,12 @@ export default function App() {
             {cursorVisible && (
               <div className="hidden lg:block">
                 <div
-                  className="fixed w-2.5 h-2.5 rounded-full bg-primaryBlue pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out mix-blend-difference"
-                  style={{ left: mousePos.x, top: mousePos.y }}
+                  className="fixed w-3 h-3 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"
+                  style={{ left: mousePos.x, top: mousePos.y, background: 'radial-gradient(circle, #818cf8, #4f46e5)', boxShadow: '0 0 10px rgba(129,140,248,0.8)' }}
                 />
                 <div
-                  className="fixed w-7 h-7 rounded-full border border-secondaryPurple/60 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"
-                  style={{ left: mousePos.x, top: mousePos.y }}
+                  className="fixed w-8 h-8 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-250 ease-out"
+                  style={{ left: mousePos.x, top: mousePos.y, border: '1px solid rgba(124,58,237,0.5)', boxShadow: '0 0 15px rgba(79,70,229,0.15)' }}
                 />
               </div>
             )}
