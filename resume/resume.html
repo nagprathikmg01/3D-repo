@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nag Prathik M G — Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:      #16213a;   /* deep navy text */
+    --muted:    #5b6478;   /* cool gray */
+    --faint:    #8b93a8;
+    --accent:   #2563eb;   /* electric blue */
+    --violet:   #7c3aed;
+    --cyan:     #0891b2;
+    --rule:     #e3e8f2;
+    --chipbg:   #eef3fd;
+  }
+
+  html, body {
+    width: 210mm; height: 297mm;
+    font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    font-size: 9.6px;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .brandbar {
+    height: 4mm;
+    background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4);
+  }
+
+  .page { padding: 7mm 11mm 6mm; }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  /* ── Header ─────────────────────────────── */
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .name {
+    font-size: 25px; font-weight: 800; letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+  .name span { color: var(--accent); }
+  .role {
+    font-size: 10.5px; font-weight: 600; color: var(--violet);
+    letter-spacing: 0.6px; margin-top: 1px;
+  }
+  .contact { text-align: right; font-size: 9px; color: var(--muted); line-height: 1.55; }
+  .contact b { color: var(--ink); font-weight: 600; }
+
+  /* ── Sections ───────────────────────────── */
+  section { margin-top: 7px; }
+  h2 {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 2.2px;
+    color: var(--accent); font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 4px;
+  }
+  h2::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  .objective { color: var(--muted); }
+  .objective b { color: var(--ink); font-weight: 600; }
+
+  /* rows with right-aligned dates */
+  .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px; }
+  .row:first-of-type { margin-top: 0; }
+  .row .title { font-weight: 700; font-size: 10px; }
+  .row .title .tag {
+    font-size: 8px; font-weight: 700; color: var(--violet);
+    background: #f3eefe; border-radius: 3px; padding: 1px 5px; margin-left: 5px;
+    letter-spacing: 0.3px; vertical-align: 1px;
+  }
+  .row .date { color: var(--faint); font-size: 8.8px; font-weight: 600; white-space: nowrap; }
+  .sub { color: var(--muted); font-style: italic; font-size: 9.2px; }
+  .tech { color: var(--cyan); font-size: 8.8px; font-weight: 600; }
+
+  ul { list-style: none; margin: 1.5px 0 0 0; }
+  li { padding-left: 10px; position: relative; color: var(--muted); }
+  li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 8px; top: 1px; }
+  li b { color: var(--ink); font-weight: 600; }
+
+  /* skills grid */
+  .skilltable { display: grid; grid-template-columns: 86px 1fr; row-gap: 2.5px; }
+  .skilltable .k { font-weight: 700; color: var(--ink); font-size: 9px; }
+  .skilltable .v { color: var(--muted); }
+
+  /* certifications two-column */
+  .certgrid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; row-gap: 2px; }
+  .cert { display: flex; justify-content: space-between; gap: 8px; }
+  .cert .c { color: var(--muted); }
+  .cert .c b { color: var(--ink); font-weight: 600; }
+  .cert .by { color: var(--faint); font-size: 8.4px; white-space: nowrap; font-weight: 600; }
+
+  /* highlight strip */
+  .highlights {
+    margin-top: 7px;
+    display: flex; gap: 6px;
+  }
+  .hl {
+    flex: 1; text-align: center;
+    background: var(--chipbg); border: 1px solid #dbe6fb; border-radius: 4px;
+    padding: 4px 6px;
+  }
+  .hl .big { font-weight: 800; font-size: 10.5px; color: var(--accent); }
+  .hl .small { font-size: 8px; color: var(--muted); letter-spacing: 0.4px; text-transform: uppercase; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="brandbar"></div>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="name">NAG PRATHIK <span>M G</span></div>
+      <div class="role">Full-Stack Developer · AI/ML Engineer · Cloud &amp; DevOps Engineer</div>
+    </div>
+    <div class="contact">
+      <b>+91-88926-86763</b> · <a href="mailto:nagprathikmg@gmail.com">nagprathikmg@gmail.com</a><br>
+      <a href="https://linkedin.com/in/nag-prathik-m-g">linkedin.com/in/nag-prathik-m-g</a> · <a href="https://github.com/nagprathikmg01">github.com/nagprathikmg01</a><br>
+      <a href="https://nagprathik.dev">nagprathik.dev</a> · Bangalore, India
+    </div>
+  </header>
+
+  <section>
+    <h2>Career Objective</h2>
+    <p class="objective">Final year B.E. Information Science student (<b>CGPA 8.5/10</b>) at NMIT, Bangalore, seeking a <b>Software Engineering / AI-ML / Cloud Engineering</b> internship to apply hands-on expertise in <b>full-stack development, Generative AI, RAG pipelines</b>, and <b>GCP/AWS</b> while contributing to real-world engineering environments.</p>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skilltable">
+      <div class="k">Languages</div><div class="v">Java, C, Python, JavaScript, TypeScript, Dart, SQL, HTML5, CSS3</div>
+      <div class="k">AI / ML</div><div class="v">PyTorch, Transformers, LLMs, RAG, Agentic AI, NLP, Generative AI, Gemini API, Vertex AI, Prompt Engineering, Streamlit</div>
+      <div class="k">Full-Stack / Web</div><div class="v">Flutter, React.js, Node.js, Express.js, Vite, Tailwind CSS, REST APIs, Prisma</div>
+      <div class="k">Cloud &amp; DevOps</div><div class="v">GCP (Compute Engine, Cloud Network, Vertex AI), AWS (EC2, S3, IAM), Terraform, Firebase, Docker, Git, GitHub, Vercel, CI/CD</div>
+      <div class="k">Databases &amp; Concepts</div><div class="v">MySQL, MongoDB, PostgreSQL, Redis, Firestore · OOP, DSA, System Design, Agile/Scrum</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="row">
+      <div class="title">Adaptive Drone Navigation &amp; Drift Detection <span class="tag">FINAL YEAR PROJECT</span></div>
+      <div class="date">Jan 2024 – Present</div>
+    </div>
+    <div class="tech">Python · PyTorch · Transformers · Streamlit · AirSim</div>
+    <ul>
+      <li>Engineered a <b>Transformer-based deep learning model</b> for real-time drone trajectory prediction, achieving <b>92% accuracy</b> across AirSim scenarios; <b>online learning</b> enables autonomous sensor-drift recalibration without full retraining.</li>
+      <li>Performed <b>EDA and feature engineering</b> on multi-dimensional sensor time-series; built <b>Streamlit dashboard</b> with live drift metrics, per-epoch curves, and configurable alert thresholds.</li>
+    </ul>
+
+    <div class="row">
+      <div class="title">GeoQuest — AI-Driven Travel Planner</div>
+      <div class="date">2025</div>
+    </div>
+    <div class="tech">LLMs (Claude 3.5 + Llama 3.1) · NVIDIA NIM · Node.js · Express.js · PostgreSQL · Redis</div>
+    <ul>
+      <li>Architected <b>LLM-powered itinerary engine</b> on NVIDIA NIM; multi-API pipeline (OpenStreetMap, Wikipedia, Google Maps); full <b>REST API</b> backend with Prisma + PostgreSQL + Redis caching and <b>39 Jest tests</b>.</li>
+    </ul>
+
+    <div class="row">
+      <div class="title">GreenCart — Agentic AI Sustainable Shopping <span class="tag">LIVE</span></div>
+      <div class="date">2025</div>
+    </div>
+    <div class="tech">React · JavaScript · RAG · Agentic AI · NLP · Vercel</div>
+    <ul>
+      <li>Built <b>custom RAG pipeline</b> with NLP-based intent parsing; <b>3 autonomous AI agents</b> (Analyzer, Search, Education) surface real-time carbon-footprint metrics and eco-alternatives; live on Vercel.</li>
+    </ul>
+
+    <div class="row">
+      <div class="title">ClubOS — Cross-Platform Club Management</div>
+      <div class="date">2025</div>
+    </div>
+    <div class="tech">Flutter · Dart · Firebase · Firestore · fl_chart</div>
+    <ul>
+      <li>Architected <b>cross-platform production app</b> (Android, iOS, Web, Windows, Linux) with <b>Firebase Auth, role-based access control</b>, real-time Firestore sync, and <b>10+ modules</b>: Kanban, budget tracker, live chat, analytics, PDF certificate generator.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience &amp; Leadership</h2>
+
+    <div class="row">
+      <div class="title">AI Sustainability Intern — 1M1B · AICTE · IBM SkillsBuild <span class="tag">NATIONALLY SELECTED</span></div>
+      <div class="date">Dec 2025 – Jan 2026</div>
+    </div>
+    <ul>
+      <li>Applied <b>IBM Granite LLMs, Agentic AI, and RAG</b> to real-world UN SDG challenges; completed 8 modules on <b>LLM fine-tuning and responsible AI</b> — co-certified by AICTE &amp; IBM SkillsBuild.</li>
+    </ul>
+
+    <div class="row">
+      <div class="title">Google Student Ambassador — Google Developer Student Clubs, Bangalore <span class="tag">TOP 250 GLOBALLY</span></div>
+      <div class="date">Jul 2025 – Present</div>
+    </div>
+    <ul>
+      <li>Conducted <b>5+ workshops</b> on GCP &amp; Generative AI for <b>100+ students</b>; co-organised <b>2 hackathons</b> with Google developer programmes.</li>
+    </ul>
+
+    <div class="row">
+      <div class="title">Marketing Head, IEEE CS Chapter · Head of Events, Team Adwaitha · PR Lead, DataWiz &amp; CloudZilla</div>
+      <div class="date">Dec 2024 – Present</div>
+    </div>
+    <ul>
+      <li>Executed <b>6+ technical events</b> on AI, cloud, and data science with <b>200+ participants</b> each; managed cross-functional student teams and speaker logistics.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="row">
+      <div class="title">Nitte Meenakshi Institute of Technology (NMIT), Bangalore</div>
+      <div class="date">Aug 2023 – May 2027</div>
+    </div>
+    <div class="sub">B.E., Information Science &amp; Engineering — CGPA: 8.5 / 10.0 (till 6th semester)</div>
+    <div class="row">
+      <div class="title">Ambika PU College, Puttur — PUC, Science (PCMCs): 94%</div>
+      <div class="date">2021 – 2023</div>
+    </div>
+    <div class="row">
+      <div class="title">St. Joseph High School, Hunsur — SSLC: 96.8%</div>
+      <div class="date">2020 – 2021</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="certgrid">
+      <div class="cert"><span class="c"><b>Google Cloud Engineering Certificate</b></span><span class="by">Google Cloud</span></div>
+      <div class="cert"><span class="c">Prompt Design in Vertex AI</span><span class="by">Google Cloud</span></div>
+      <div class="cert"><span class="c">Gemini Multimodality &amp; Multimodal RAG</span><span class="by">Google Cloud</span></div>
+      <div class="cert"><span class="c">GenAI Apps with Gemini &amp; Streamlit</span><span class="by">Google Cloud</span></div>
+      <div class="cert"><span class="c">Build Infrastructure with Terraform on GCP</span><span class="by">Google Cloud</span></div>
+      <div class="cert"><span class="c"><b>AWS Cloud Foundations</b> Training Badge</span><span class="by">AWS · Oct 2025</span></div>
+      <div class="cert"><span class="c"><b>AWS Cloud Architecting</b> Training Badge</span><span class="by">AWS · Nov 2025</span></div>
+      <div class="cert"><span class="c">Networking Basics</span><span class="by">Cisco · Oct 2025</span></div>
+      <div class="cert"><span class="c">Back-end &amp; DB Dev · DSA · UI Design</span><span class="by">Simplilearn JFSD · 2026</span></div>
+      <div class="cert"><span class="c">Database and SQL</span><span class="by">Infosys Springboard · Mar 2026</span></div>
+    </div>
+  </section>
+
+  <div class="highlights">
+    <div class="hl"><div class="big">Top 250 Globally</div><div class="small">Google Student Ambassador</div></div>
+    <div class="hl"><div class="big">National AI Internship</div><div class="small">AICTE + IBM SkillsBuild</div></div>
+    <div class="hl"><div class="big">CGPA 8.5 · 94% · 96.8%</div><div class="small">Academic Record</div></div>
+  </div>
+
+</div>
+</body>
+</html>

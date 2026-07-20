@@ -1,0 +1,5 @@
+<!doctype html><body><script>
+const c = document.createElement('canvas');
+const gl = c.getContext('webgl2') || c.getContext('webgl');
+document.body.textContent = (gl ? 'WEBGL_OK ' + gl.getParameter(gl.RENDERER) : 'WEBGL_FAIL');
+</script></body>
