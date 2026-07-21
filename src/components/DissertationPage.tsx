@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 import InteractiveHeroCanvas from "./InteractiveHeroCanvas";
-import NeuralTopologyWidget from "./NeuralTopologyWidget";
-import CodeInspectorWidget from "./CodeInspectorWidget";
 import CandidateBadge3D from "./CandidateBadge3D";
 import AudioAbstractPlayer from "./AudioAbstractPlayer";
 import VisualCertificationsShowcase from "./VisualCertificationsShowcase";
 import TechLogoMarquee, { SKILL_ICON_MAP } from "./TechLogoMarquee";
-import GitHubActivityWidget from "./GitHubActivityWidget";
 import MacProjectModal from "./MacProjectModal";
 import {
   identity,
@@ -191,14 +188,13 @@ export default function DissertationPage() {
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6 font-mono text-[11px] text-inkMuted">
-            <button onClick={() => scrollToSection("ch-00")} className="hover:text-crimson transition-colors">00. ABSTRACT</button>
+            <button onClick={() => scrollToSection("ch-00")} className="hover:text-crimson transition-colors">00. ABOUT</button>
             <button onClick={() => scrollToSection("ch-01")} className="hover:text-crimson transition-colors">01. METRICS</button>
             <button onClick={() => scrollToSection("ch-02")} className="hover:text-crimson transition-colors">02. SKILLS</button>
-            <button onClick={() => scrollToSection("ch-03")} className="hover:text-crimson transition-colors">03. PUBLICATIONS</button>
-            <button onClick={() => scrollToSection("ch-04")} className="hover:text-crimson transition-colors">04. CHRONOLOGY</button>
+            <button onClick={() => scrollToSection("ch-03")} className="hover:text-crimson transition-colors">03. PROJECTS</button>
+            <button onClick={() => scrollToSection("ch-04")} className="hover:text-crimson transition-colors">04. EXPERIENCE</button>
             <button onClick={() => scrollToSection("ch-05")} className="hover:text-crimson transition-colors">05. DEGREES</button>
-            <button onClick={() => scrollToSection("ch-06")} className="hover:text-crimson transition-colors">06. SERVICES</button>
-            <button onClick={() => scrollToSection("ch-07")} className="hover:text-crimson transition-colors">07. INQUIRY</button>
+            <button onClick={() => scrollToSection("ch-06")} className="hover:text-crimson transition-colors">06. CONTACT</button>
           </nav>
 
           {/* Header Action Buttons */}
@@ -213,7 +209,7 @@ export default function DissertationPage() {
             <a href={identity.resume} download className="btn-ghost text-[10px] px-3.5 py-1.5 hidden sm:inline-flex">
               CV [PDF]
             </a>
-            <button onClick={() => scrollToSection("ch-07")} className="btn-red text-[10px] px-4 py-1.5">
+            <button onClick={() => scrollToSection("ch-06")} className="btn-red text-[10px] px-4 py-1.5">
               INQUIRE ↗
             </button>
             {/* Mobile Menu Toggle */}
@@ -230,41 +226,41 @@ export default function DissertationPage() {
         {/* Mobile Dropdown Nav */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-paperBorder mt-3 pt-3 pb-4 space-y-2 font-mono text-xs text-inkDark bg-paperSheet px-4 rounded-sm shadow-md">
-            <button onClick={() => scrollToSection("ch-00")} className="block w-full text-left py-1 hover:text-crimson">00. ABSTRACT & OVERVIEW</button>
-            <button onClick={() => scrollToSection("ch-01")} className="block w-full text-left py-1 hover:text-crimson">01. BENCHMARK METRICS</button>
-            <button onClick={() => scrollToSection("ch-02")} className="block w-full text-left py-1 hover:text-crimson">02. COMPETENCIES & DOMAINS</button>
-            <button onClick={() => scrollToSection("ch-03")} className="block w-full text-left py-1 hover:text-crimson">03. PUBLISHED WORKS & PROJECTS</button>
-            <button onClick={() => scrollToSection("ch-04")} className="block w-full text-left py-1 hover:text-crimson">04. FIELD CHRONOLOGY</button>
-            <button onClick={() => scrollToSection("ch-05")} className="block w-full text-left py-1 hover:text-crimson">05. ACADEMIC CREDENTIALS</button>
-            <button onClick={() => scrollToSection("ch-06")} className="block w-full text-left py-1 hover:text-crimson">06. CONSULTANCY PACKAGES</button>
-            <button onClick={() => scrollToSection("ch-07")} className="block w-full text-left py-1 hover:text-crimson">07. MANUSCRIPT SUBMISSION</button>
+            <button onClick={() => scrollToSection("ch-00")} className="block w-full text-left py-1 hover:text-crimson">00. ABOUT NAG PRATHIK M G</button>
+            <button onClick={() => scrollToSection("ch-01")} className="block w-full text-left py-1 hover:text-crimson">01. GITHUB & METRICS</button>
+            <button onClick={() => scrollToSection("ch-02")} className="block w-full text-left py-1 hover:text-crimson">02. TECHNICAL SKILLS</button>
+            <button onClick={() => scrollToSection("ch-03")} className="block w-full text-left py-1 hover:text-crimson">03. FEATURED PROJECTS</button>
+            <button onClick={() => scrollToSection("ch-04")} className="block w-full text-left py-1 hover:text-crimson">04. EXPERIENCE & CHRONOLOGY</button>
+            <button onClick={() => scrollToSection("ch-05")} className="block w-full text-left py-1 hover:text-crimson">05. DEGREES & CERTIFICATIONS</button>
+            <button onClick={() => scrollToSection("ch-06")} className="block w-full text-left py-1 hover:text-crimson">06. CONTACT & INQUIRY</button>
           </div>
         )}
       </header>
 
       {/* MAIN CONTENT CONTAINER */}
-      <main className="max-w-7xl mx-auto px-6 py-12 space-y-28 relative z-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-24 relative z-10 overflow-x-hidden">
 
-        {/* CHAPTER 00: DISSERTATION ABSTRACT & HERO */}
-        <section id="ch-00" className="pt-4 relative min-h-[75vh] flex flex-col justify-center">
+        {/* CHAPTER 00: ABOUT & HERO */}
+        <section id="ch-00" className="pt-2 sm:pt-4 relative min-h-[70vh] flex flex-col justify-center">
           <InteractiveHeroCanvas />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start relative z-10">
 
             {/* Left 8 Cols — Main Abstract & Hero Header */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="space-y-3">
-                <div className="fade-in inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-crimson bg-paperSheet/90 backdrop-blur border border-paperBorder px-3 py-1 font-bold">
-                  <span>◈ DISSERTATION PORTFOLIO · EDITION 2026</span>
-                  <span>·</span>
-                  <span>APPLIED AI & SYSTEMS</span>
+            <div className="lg:col-span-8 space-y-5 sm:space-y-6">
+              <div className="space-y-2.5 sm:space-y-3">
+                <div className="fade-in inline-flex items-center gap-2 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-crimson bg-paperSheet/90 backdrop-blur border border-paperBorder px-2.5 sm:px-3 py-1 font-bold rounded-xs flex-wrap">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <span className="truncate">AVAILABLE FOR FULL-STACK & AI/ML ROLES</span>
+                  <span className="hidden sm:inline">·</span>
+                  <span className="hidden sm:inline">APPLIED AI & SYSTEMS</span>
                 </div>
 
-                <h1 className="fade-in font-display text-5xl sm:text-6xl md:text-7xl font-extrabold text-inkDark leading-[1.02] tracking-tight">
+                <h1 className="fade-in font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-inkDark leading-[1.05] tracking-tight break-words">
                   NAG PRATHIK <span className="text-crimson italic font-bold">M G</span>
                 </h1>
 
-                <p className="fade-in font-display text-xl sm:text-2xl text-crimson font-bold tracking-tight">
-                  Architecting Scalable AI Infrastructure, Agentic RAG & Resilient Systems.
+                <p className="fade-in font-display text-lg sm:text-2xl text-crimson font-bold tracking-tight leading-snug">
+                  Architecting Scalable AI Infrastructure, Agentic RAG & Resilient Full-Stack Systems.
                 </p>
               </div>
 
@@ -272,35 +268,84 @@ export default function DissertationPage() {
                 <Typewriter />
               </div>
 
-              {/* Abstract Quote Block */}
-              <div className="fade-in space-panel p-6 sm:p-8 relative">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3 border-b border-paperBorder pb-2">
-                  <p className="font-mono text-[10px] text-crimson tracking-[0.3em] uppercase font-semibold">
-                    ABSTRACT & EXECUTIVE STATEMENT
+              {/* Executive Summary Block */}
+              <div className="fade-in space-panel p-4 sm:p-8 relative">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-paperBorder pb-2">
+                  <p className="font-mono text-[9px] sm:text-[10px] text-crimson tracking-[0.2em] uppercase font-bold">
+                    EXECUTIVE SUMMARY & STATEMENT
                   </p>
                   <AudioAbstractPlayer />
                 </div>
-                <blockquote className="font-sans text-base sm:text-lg text-inkDark leading-relaxed font-normal italic border-l-2 border-crimson pl-4">
-                  "This dissertation presents empirical research and production software engineering across neural drift detection, autonomous agentic workflows, multi-platform applications, and resilient cloud architectures authored by {identity.name}."
+                <blockquote className="font-sans text-sm sm:text-lg text-inkDark leading-relaxed font-normal italic border-l-2 border-crimson pl-3 sm:pl-4">
+                  "Passionate software engineer and Google Student Ambassador (Top 250 globally) specializing in neural drift forecasting, autonomous agentic workflows, multi-platform applications, and resilient cloud architectures authored by {identity.name}."
                 </blockquote>
-                <div className="mt-4 pt-4 border-t border-paperBorder/60 flex flex-wrap gap-4 text-xs font-mono text-inkMuted">
+                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-paperBorder/60 flex flex-wrap gap-2.5 sm:gap-4 text-[11px] sm:text-xs font-mono text-inkMuted">
                   <span>LOCATION: BENGALURU, INDIA</span>
-                  <span>·</span>
-                  <span>STATUS: AVAILABLE FOR ROLES & CONSULTING</span>
+                  <span className="hidden sm:inline">·</span>
+                  <span className="text-crimson font-bold">STATUS: OPEN TO ROLES</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="fade-in flex flex-wrap gap-4 pt-2">
-                <a href={identity.resume} download className="btn-red text-xs px-6 py-3">
+              <div className="fade-in flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-1">
+                <a href={identity.resume} download className="btn-red text-xs px-6 py-3 shadow-md hover:shadow-lg transition-shadow text-center justify-center">
                   DOWNLOAD CV [PDF] ▼
                 </a>
-                <button onClick={() => scrollToSection("ch-03")} className="btn-ghost text-xs px-6 py-3">
-                  EXPLORE CASE STUDIES ↘
+                <button onClick={() => scrollToSection("ch-03")} className="btn-ghost text-xs px-6 py-3 text-center justify-center">
+                  EXPLORE FEATURED PROJECTS ↘
                 </button>
-                <a href={identity.github} target="_blank" rel="noopener noreferrer" className="btn-ghost text-xs px-5 py-3">
-                  GITHUB REPOSITORY ↗
+                <a href={identity.github} target="_blank" rel="noopener noreferrer" className="btn-ghost text-xs px-5 py-3 text-center justify-center">
+                  GITHUB REPOSITORIES ↗
                 </a>
+              </div>
+
+              {/* Core Engineering Specializations Grid to Fill Space */}
+              <div className="fade-in pt-4 border-t border-paperBorder space-y-3">
+                <div className="flex items-center justify-between font-mono text-[10px]">
+                  <span className="text-crimson font-bold uppercase tracking-[0.2em]">PRIMARY TECHNICAL COMPETENCIES</span>
+                  <span className="text-inkMuted">AUDITED ENGINE STACK</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+                  <div className="p-3.5 bg-paperSheet border border-paperBorder rounded-xs hover:border-crimson transition-all group">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-crimson" />
+                      <span className="font-bold text-inkDark group-hover:text-crimson transition-colors text-xs">AI & RAG ARCHITECTURE</span>
+                    </div>
+                    <p className="font-sans text-xs text-inkMuted leading-relaxed">
+                      NVIDIA NIM, Claude 3.5, Llama 3.1, PyTorch Transformers, RAG Pipelines & Agentic Systems.
+                    </p>
+                  </div>
+                  
+                  <div className="p-3.5 bg-paperSheet border border-paperBorder rounded-xs hover:border-crimson transition-all group">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-crimson" />
+                      <span className="font-bold text-inkDark group-hover:text-crimson transition-colors text-xs">FULL-STACK WEB PLATFORMS</span>
+                    </div>
+                    <p className="font-sans text-xs text-inkMuted leading-relaxed">
+                      React.js, TypeScript, Node.js, Express REST APIs, PostgreSQL, Prisma ORM & Redis Cache.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-paperSheet border border-paperBorder rounded-xs hover:border-crimson transition-all group">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-crimson" />
+                      <span className="font-bold text-inkDark group-hover:text-crimson transition-colors text-xs">CROSS-PLATFORM APPS</span>
+                    </div>
+                    <p className="font-sans text-xs text-inkMuted leading-relaxed">
+                      Flutter & Dart single codebase compiling natively for Android, iOS, Web & Desktop OS.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-paperSheet border border-paperBorder rounded-xs hover:border-crimson transition-all group">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-crimson" />
+                      <span className="font-bold text-inkDark group-hover:text-crimson transition-colors text-xs">CLOUD & DEVOPS INFRASTRUCTURE</span>
+                    </div>
+                    <p className="font-sans text-xs text-inkMuted leading-relaxed">
+                      Google Cloud Platform, AWS, Docker Containerization, Vercel, Firebase & CI/CD Pipelines.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -312,7 +357,7 @@ export default function DissertationPage() {
 
               <div className="fade-in space-panel p-5">
                 <p className="font-mono text-[10px] text-crimson uppercase tracking-widest font-bold mb-2">
-                  MARGINAL NOTE 01 — RESEARCH FOCUS
+                  KEY NOTE 01 — ENGINEERING FOCUS
                 </p>
                 <p className="font-sans text-xs text-inkMuted leading-relaxed">
                   Specialized in deploying low-latency LLMs (NVIDIA NIM, Claude, Llama 3.1), transformer drift detection, vector retrieval (RAG), and high-reliability full-stack APIs.
@@ -321,7 +366,7 @@ export default function DissertationPage() {
 
               <div className="fade-in space-panel p-5">
                 <p className="font-mono text-[10px] text-crimson uppercase tracking-widest font-bold mb-2">
-                  MARGINAL NOTE 02 — LEADERSHIP
+                  KEY NOTE 02 — LEADERSHIP
                 </p>
                 <p className="font-sans text-xs text-inkMuted leading-relaxed">
                   Conducted 5+ Google Cloud & AI workshops for 100+ students, co-organized 2 hackathons, and leads marketing for IEEE Computer Society NMIT.
@@ -364,11 +409,6 @@ export default function DissertationPage() {
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="fade-in space-y-8">
-            <NeuralTopologyWidget />
-            <GitHubActivityWidget />
           </div>
         </section>
 
@@ -435,24 +475,20 @@ export default function DissertationPage() {
               </div>
             ))}
           </div>
-
-          <div className="fade-in">
-            <CodeInspectorWidget />
-          </div>
         </section>
 
-        {/* CHAPTER 03: PUBLISHED WORKS & CASE STUDIES */}
+        {/* CHAPTER 03: FEATURED PROJECTS & CASE STUDIES */}
         <section id="ch-03" className="scroll-mt-24">
           <SectionHeading
             chapter="03"
-            title="Published Works & Case Studies"
-            subtitle="Selected production software systems, neural navigation research, and full-stack projects."
+            title="Featured Projects & Software Engineering Case Studies"
+            subtitle="Production AI applications, autonomous drone telemetry research, and full-stack software systems."
           />
 
           {/* Project Category Filter Tabs */}
           <div className="fade-in flex flex-wrap gap-2 font-mono text-xs mb-8 border-b border-paperBorder pb-4">
             {[
-              { id: "ALL", label: "ALL MANUSCRIPTS" },
+              { id: "ALL", label: "ALL FEATURED PROJECTS" },
               { id: "AI", label: "AI & NEURAL MODELS" },
               { id: "FULLSTACK", label: "FULL-STACK & APPS" },
               { id: "CLOUD", label: "RAG & CLOUD SYSTEMS" },
@@ -480,7 +516,11 @@ export default function DissertationPage() {
                 return true;
               })
               .map((p, idx) => (
-                <article key={p.id} className="fade-in space-panel overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300">
+                <article
+                  key={p.id}
+                  onClick={() => setSelectedProject(p)}
+                  className="fade-in space-panel overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
+                >
                   {/* Project Image Banner */}
                   {p.image && (
                     <div className="relative h-48 sm:h-56 bg-paperSheet overflow-hidden border-b border-paperBorder">
@@ -491,7 +531,7 @@ export default function DissertationPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-paperBg via-transparent to-transparent opacity-80" />
                       <span className="absolute top-3 left-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 font-bold">
-                        PUB-2026-0{idx + 1}
+                        PROJECT-0{idx + 1}
                       </span>
                       {p.badge && (
                         <span className="absolute top-3 right-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 flex items-center gap-1.5 font-bold">
@@ -503,38 +543,56 @@ export default function DissertationPage() {
                   )}
 
                   <div className="p-7">
-                    <h3 className="font-display text-2xl font-bold text-inkDark leading-snug mb-2 group-hover:text-crimson transition-colors">
-                      {p.title}
+                    <h3 className="font-display text-2xl font-bold text-inkDark leading-snug mb-2 group-hover:text-crimson transition-colors flex items-center justify-between">
+                      <span>{p.title}</span>
+                      <span className="font-mono text-xs text-crimson opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
                     </h3>
 
                     <p className="font-mono text-[10px] text-crimson tracking-widest uppercase mb-4 font-semibold">
                       {p.sub}
                     </p>
 
-                    <p className="font-sans text-sm text-inkMuted leading-relaxed mb-6">
+                    <p className="font-sans text-sm text-inkMuted leading-relaxed mb-6 line-clamp-3">
                       {p.description}
                     </p>
 
                     <div className="flex flex-wrap gap-1.5 mb-6">
-                      {p.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="font-mono text-[9px] uppercase border border-paperBorder text-inkDark bg-paperSheet px-2.5 py-1"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                      {p.tech.map((t) => {
+                        const iconUrl = SKILL_ICON_MAP[t];
+                        return (
+                          <span
+                            key={t}
+                            className="font-mono text-[9px] uppercase border border-paperBorder text-inkDark bg-paperSheet px-2.5 py-1 flex items-center gap-1.5 font-medium"
+                          >
+                            {iconUrl && (
+                              <img
+                                src={iconUrl}
+                                alt={t}
+                                className="w-3 h-3 object-contain shrink-0"
+                                onError={(e) => {
+                                  (e.currentTarget as HTMLElement).style.display = "none";
+                                }}
+                              />
+                            )}
+                            <span>{t}</span>
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div className="px-7 pb-6 pt-2 border-t border-paperBorder/60 flex items-center justify-between gap-3">
                     <button
-                      onClick={() => setSelectedProject(p)}
-                      className="font-mono text-xs text-crimson font-semibold hover:underline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(p);
+                      }}
+                      className="font-mono text-xs text-crimson font-semibold hover:underline flex items-center gap-1"
                     >
-                      EXAMINE MANUSCRIPT ↗
+                      <span>EXPLORE PROJECT DETAILS & ARCHITECTURE</span>
+                      <span>↗</span>
                     </button>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
                       <a
                         href={p.github}
                         target="_blank"
@@ -612,101 +670,12 @@ export default function DissertationPage() {
           <VisualCertificationsShowcase />
         </section>
 
-        {/* CHAPTER 06: CONSULTANCY & SERVICE PACKAGES */}
+        {/* CHAPTER 06: MANUSCRIPT SUBMISSION & CONTACT */}
         <section id="ch-06" className="scroll-mt-24">
           <SectionHeading
             chapter="06"
-            title="Consultancy & Engagement Packages"
-            subtitle="Tailored engineering services for startups, research teams, and enterprise clients."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Package A */}
-            <div className="fade-in space-panel p-7 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
-              <div>
-                <div className="flex items-center justify-between border-b border-paperBorder pb-3 mb-4">
-                  <span className="font-mono text-[10px] text-crimson uppercase tracking-[0.2em] font-bold">
-                    PACKAGE A
-                  </span>
-                  <span className="font-mono text-[9px] text-inkMuted">AI / RAG ARCHITECTURE</span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-inkDark mb-2">AI MVP & RAG Pipeline</h3>
-                <p className="font-mono text-xs text-crimson font-semibold mb-4">Custom LLM & Agentic Workflows</p>
-                <p className="font-sans text-xs text-inkMuted leading-relaxed mb-6">
-                  Design and deployment of custom RAG pipelines, vector retrieval systems, and multi-agent intent architecture tailored to your domain dataset.
-                </p>
-                <ul className="space-y-2 font-mono text-[11px] text-inkDark mb-8">
-                  <li className="flex items-center gap-2">✓ Vector Database & Retrieval Tuning</li>
-                  <li className="flex items-center gap-2">✓ NVIDIA NIM / Gemini API Integration</li>
-                  <li className="flex items-center gap-2">✓ Interactive Streamlit / React Interface</li>
-                  <li className="flex items-center gap-2">✓ Latency & Token Optimization</li>
-                </ul>
-              </div>
-              <button onClick={() => scrollToSection("ch-07")} className="btn-red w-full justify-center text-xs py-3">
-                INQUIRE FOR PACKAGE A ↗
-              </button>
-            </div>
-
-            {/* Package B */}
-            <div className="fade-in space-panel p-7 flex flex-col justify-between border-crimson/40 shadow-md hover:-translate-y-1 transition-transform duration-300">
-              <div>
-                <div className="flex items-center justify-between border-b border-paperBorder pb-3 mb-4">
-                  <span className="font-mono text-[10px] text-crimson uppercase tracking-[0.2em] font-bold">
-                    PACKAGE B · RECOMMENDED
-                  </span>
-                  <span className="font-mono text-[9px] text-crimson font-bold">FULL-STACK WEB</span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-inkDark mb-2">Full-Stack Application</h3>
-                <p className="font-mono text-xs text-crimson font-semibold mb-4">React, Node.js & Cloud Database</p>
-                <p className="font-sans text-xs text-inkMuted leading-relaxed mb-6">
-                  End-to-end web software development with high-performance responsive frontend, RESTful backend APIs, and scalable PostgreSQL/Redis storage.
-                </p>
-                <ul className="space-y-2 font-mono text-[11px] text-inkDark mb-8">
-                  <li className="flex items-center gap-2">✓ React / TypeScript Modern UI</li>
-                  <li className="flex items-center gap-2">✓ Node.js & Express REST Backend</li>
-                  <li className="flex items-center gap-2">✓ PostgreSQL / Prisma ORM Integration</li>
-                  <li className="flex items-center gap-2">✓ Redis Cache & Automated Testing</li>
-                </ul>
-              </div>
-              <button onClick={() => scrollToSection("ch-07")} className="btn-red w-full justify-center text-xs py-3">
-                INQUIRE FOR PACKAGE B ↗
-              </button>
-            </div>
-
-            {/* Package C */}
-            <div className="fade-in space-panel p-7 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
-              <div>
-                <div className="flex items-center justify-between border-b border-paperBorder pb-3 mb-4">
-                  <span className="font-mono text-[10px] text-crimson uppercase tracking-[0.2em] font-bold">
-                    PACKAGE C
-                  </span>
-                  <span className="font-mono text-[9px] text-inkMuted">CLOUD & DEVOPS</span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-inkDark mb-2">Cloud Architecture</h3>
-                <p className="font-mono text-xs text-crimson font-semibold mb-4">AWS / GCP Infrastructure Audit</p>
-                <p className="font-sans text-xs text-inkMuted leading-relaxed mb-6">
-                  Infrastructure as Code setup, containerization, CI/CD pipeline automation, and performance auditing for existing cloud workloads.
-                </p>
-                <ul className="space-y-2 font-mono text-[11px] text-inkDark mb-8">
-                  <li className="flex items-center gap-2">✓ Terraform Infrastructure Provisioning</li>
-                  <li className="flex items-center gap-2">✓ Docker & Containerization</li>
-                  <li className="flex items-center gap-2">✓ CI/CD Pipeline Automation</li>
-                  <li className="flex items-center gap-2">✓ Load Balancing & Security Audit</li>
-                </ul>
-              </div>
-              <button onClick={() => scrollToSection("ch-07")} className="btn-ghost w-full justify-center text-xs py-3">
-                INQUIRE FOR PACKAGE C ↗
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* CHAPTER 07: MANUSCRIPT SUBMISSION & CONTACT */}
-        <section id="ch-07" className="scroll-mt-24">
-          <SectionHeading
-            chapter="07"
             title="Manuscript Submission & Formal Inquiry"
-            subtitle="Direct communication channel for research collaborations, engineering roles, and engagements."
+            subtitle="Direct communication channel for research collaborations, engineering roles, and hiring inquiries."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
