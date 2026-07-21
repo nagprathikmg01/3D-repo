@@ -186,3 +186,18 @@
     radial-gradient(130% 65% at 50% -10%, rgba(158, 71, 51, 0.025), transparent 60%),
     radial-gradient(130% 65% at 50% 110%, rgba(30, 28, 26, 0.015), transparent 60%);
 }
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+

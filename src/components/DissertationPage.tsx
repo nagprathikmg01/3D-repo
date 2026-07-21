@@ -6,6 +6,7 @@ import CodeInspectorWidget from "./CodeInspectorWidget";
 import CandidateBadge3D from "./CandidateBadge3D";
 import AudioAbstractPlayer from "./AudioAbstractPlayer";
 import VisualCertificationsShowcase from "./VisualCertificationsShowcase";
+import TechLogoMarquee, { SKILL_ICON_MAP } from "./TechLogoMarquee";
 import {
   identity,
   stats,
@@ -229,12 +230,12 @@ export default function DissertationPage() {
 
       {/* MAIN CONTENT CONTAINER */}
       <main className="max-w-7xl mx-auto px-6 py-12 space-y-28 relative z-10">
-        
+
         {/* CHAPTER 00: DISSERTATION ABSTRACT & HERO */}
         <section id="ch-00" className="pt-4 relative min-h-[75vh] flex flex-col justify-center">
           <InteractiveHeroCanvas />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
-            
+
             {/* Left 8 Cols — Main Abstract & Hero Header */}
             <div className="lg:col-span-8 space-y-6">
               <div className="space-y-3">
@@ -364,9 +365,14 @@ export default function DissertationPage() {
             subtitle="Categorized inventory of tools, frameworks, and architectural capabilities."
           />
 
+          {/* INFINITE SLIDING TECH LOGO MARQUEE */}
+          <div className="fade-in">
+            <TechLogoMarquee />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             {(["ai", "fs", "cloud"] as SkillTier[]).map((tier, idx) => (
-              <div key={tier} className="fade-in space-panel p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+              <div key={tier} className="fade-in space-panel p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 group hover:border-crimson/50">
                 <div>
                   <div className="flex items-center justify-between border-b border-paperBorder pb-3 mb-4">
                     <span className="font-mono text-[10px] text-crimson uppercase tracking-[0.2em] font-bold">
@@ -375,22 +381,35 @@ export default function DissertationPage() {
                     <span className="font-mono text-[9px] text-inkMuted uppercase">SPEC VERIFIED</span>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-inkDark mb-2">{TIER_LABEL[tier]}</h3>
+                  <h3 className="font-display text-xl font-bold text-inkDark mb-2 group-hover:text-crimson transition-colors">{TIER_LABEL[tier]}</h3>
                   <p className="font-sans text-xs text-inkMuted mb-6 leading-relaxed border-l-2 border-paperBorder pl-3">
                     {TIER_ANNOTATION[tier]}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2.5 mb-6">
                     {skills
                       .filter((s) => s.tier === tier)
-                      .map((s) => (
-                        <span
-                          key={s.name}
-                          className="font-mono text-[11px] px-3 py-1.5 border border-paperBorder text-inkDark bg-paperSheet hover:border-crimson hover:text-crimson transition-colors cursor-default"
-                        >
-                          {s.name}
-                        </span>
-                      ))}
+                      .map((s) => {
+                        const iconUrl = SKILL_ICON_MAP[s.name];
+                        return (
+                          <span
+                            key={s.name}
+                            className="font-mono text-[11px] px-3 py-1.5 border border-paperBorder text-inkDark bg-paperSheet hover:border-crimson hover:text-crimson hover:bg-white transition-all cursor-default flex items-center gap-2 rounded-xs shadow-xs group/badge"
+                          >
+                            {iconUrl && (
+                              <img
+                                src={iconUrl}
+                                alt={s.name}
+                                className="w-3.5 h-3.5 object-contain shrink-0 filter group-hover/badge:scale-110 transition-transform"
+                                onError={(e) => {
+                                  (e.currentTarget as HTMLElement).style.display = "none";
+                                }}
+                              />
+                            )}
+                            <span className="font-medium">{s.name}</span>
+                          </span>
+                        );
+                      })}
                   </div>
                 </div>
 
@@ -426,11 +445,10 @@ export default function DissertationPage() {
               <button
                 key={tab.id}
                 onClick={() => setProjectCategory(tab.id as any)}
-                className={`px-4 py-2 border transition-all ${
-                  projectCategory === tab.id
+                className={`px-4 py-2 border transition-all ${projectCategory === tab.id
                     ? "bg-crimson text-white border-crimson font-bold shadow-sm"
                     : "bg-paperSheet text-inkDark border-paperBorder hover:border-crimson hover:text-crimson"
-                }`}
+                  }`}
               >
                 [ {tab.label} ]
               </button>
@@ -447,83 +465,83 @@ export default function DissertationPage() {
                 return true;
               })
               .map((p, idx) => (
-              <article key={p.id} className="fade-in space-panel overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300">
-                {/* Project Image Banner */}
-                {p.image && (
-                  <div className="relative h-48 sm:h-56 bg-paperSheet overflow-hidden border-b border-paperBorder">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-paperBg via-transparent to-transparent opacity-80" />
-                    <span className="absolute top-3 left-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 font-bold">
-                      PUB-2026-0{idx + 1}
-                    </span>
-                    {p.badge && (
-                      <span className="absolute top-3 right-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 flex items-center gap-1.5 font-bold">
-                        {p.badge === "LIVE" && <span className="live-dot w-1.5 h-1.5 rounded-full" />}
-                        {p.badge}
+                <article key={p.id} className="fade-in space-panel overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300">
+                  {/* Project Image Banner */}
+                  {p.image && (
+                    <div className="relative h-48 sm:h-56 bg-paperSheet overflow-hidden border-b border-paperBorder">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-paperBg via-transparent to-transparent opacity-80" />
+                      <span className="absolute top-3 left-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 font-bold">
+                        PUB-2026-0{idx + 1}
                       </span>
-                    )}
+                      {p.badge && (
+                        <span className="absolute top-3 right-3 font-mono text-[9px] text-crimson bg-paperBg/90 backdrop-blur border border-paperBorder px-2.5 py-1 flex items-center gap-1.5 font-bold">
+                          {p.badge === "LIVE" && <span className="live-dot w-1.5 h-1.5 rounded-full" />}
+                          {p.badge}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="p-7">
+                    <h3 className="font-display text-2xl font-bold text-inkDark leading-snug mb-2 group-hover:text-crimson transition-colors">
+                      {p.title}
+                    </h3>
+
+                    <p className="font-mono text-[10px] text-crimson tracking-widest uppercase mb-4 font-semibold">
+                      {p.sub}
+                    </p>
+
+                    <p className="font-sans text-sm text-inkMuted leading-relaxed mb-6">
+                      {p.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {p.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="font-mono text-[9px] uppercase border border-paperBorder text-inkDark bg-paperSheet px-2.5 py-1"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                )}
 
-                <div className="p-7">
-                  <h3 className="font-display text-2xl font-bold text-inkDark leading-snug mb-2 group-hover:text-crimson transition-colors">
-                    {p.title}
-                  </h3>
-                  
-                  <p className="font-mono text-[10px] text-crimson tracking-widest uppercase mb-4 font-semibold">
-                    {p.sub}
-                  </p>
-
-                  <p className="font-sans text-sm text-inkMuted leading-relaxed mb-6">
-                    {p.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {p.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="font-mono text-[9px] uppercase border border-paperBorder text-inkDark bg-paperSheet px-2.5 py-1"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="px-7 pb-6 pt-2 border-t border-paperBorder/60 flex items-center justify-between gap-3">
-                  <button
-                    onClick={() => setSelectedProject(p)}
-                    className="font-mono text-xs text-crimson font-semibold hover:underline"
-                  >
-                    EXAMINE MANUSCRIPT ↗
-                  </button>
-                  <div className="flex gap-2">
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-ghost text-[10px] px-3 py-1.5"
+                  <div className="px-7 pb-6 pt-2 border-t border-paperBorder/60 flex items-center justify-between gap-3">
+                    <button
+                      onClick={() => setSelectedProject(p)}
+                      className="font-mono text-xs text-crimson font-semibold hover:underline"
                     >
-                      GITHUB ↗
-                    </a>
-                    {p.live && (
+                      EXAMINE MANUSCRIPT ↗
+                    </button>
+                    <div className="flex gap-2">
                       <a
-                        href={p.live}
+                        href={p.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-red text-[10px] px-3.5 py-1.5"
+                        className="btn-ghost text-[10px] px-3 py-1.5"
                       >
-                        DEMO ↗
+                        GITHUB ↗
                       </a>
-                    )}
+                      {p.live && (
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-red text-[10px] px-3.5 py-1.5"
+                        >
+                          DEMO ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
           </div>
         </section>
 
