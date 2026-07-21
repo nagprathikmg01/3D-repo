@@ -4,17 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        paperBg: "#FCFAF6",
-        paperSheet: "#F4F2EE",
-        paperBorder: "#E0DDD9",
-        inkDark: "#1E1C1A",
-        inkMuted: "#6E6C68",
-        crimson: "#9E4733",
-        // Maintain semantic placeholders for any direct bindings
-        primary: "#9E4733",
-        bright: "#9E4733",
-        text: "#1E1C1A",
-        muted: "#6E6C68",
+        paperBg: "var(--bg-primary)",
+        paperSheet: "var(--bg-surface)",
+        paperBorder: "var(--border)",
+        inkDark: "var(--text-primary)",
+        inkMuted: "var(--text-muted)",
+        crimson: "var(--primary)",
+        primary: "var(--primary)",
+        bright: "var(--primary)",
+        text: "var(--text-primary)",
+        muted: "var(--text-muted)",
       },
       fontFamily: {
         sans: ['"Outfit"', '"Satoshi"', "sans-serif"],

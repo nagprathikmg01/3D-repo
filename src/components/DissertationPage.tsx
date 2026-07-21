@@ -7,6 +7,8 @@ import CandidateBadge3D from "./CandidateBadge3D";
 import AudioAbstractPlayer from "./AudioAbstractPlayer";
 import VisualCertificationsShowcase from "./VisualCertificationsShowcase";
 import TechLogoMarquee, { SKILL_ICON_MAP } from "./TechLogoMarquee";
+import GitHubActivityWidget from "./GitHubActivityWidget";
+import MacProjectModal from "./MacProjectModal";
 import {
   identity,
   stats,
@@ -95,8 +97,13 @@ export default function DissertationPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [projectCategory, setProjectCategory] = useState<"ALL" | "AI" | "FULLSTACK" | "CLOUD">("ALL");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const formId = import.meta.env.VITE_FORMSPREE_ID as string | undefined;
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,6 +203,13 @@ export default function DissertationPage() {
 
           {/* Header Action Buttons */}
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="btn-ghost text-[10px] px-3.5 py-1.5 font-mono"
+              title="Toggle Dark / Light Theme"
+            >
+              {theme === "light" ? "🌙 OBSIDIAN DARK" : "☀️ CREAM PARCHMENT"}
+            </button>
             <a href={identity.resume} download className="btn-ghost text-[10px] px-3.5 py-1.5 hidden sm:inline-flex">
               CV [PDF]
             </a>
@@ -352,8 +366,9 @@ export default function DissertationPage() {
             ))}
           </div>
 
-          <div className="fade-in">
+          <div className="fade-in space-y-8">
             <NeuralTopologyWidget />
+            <GitHubActivityWidget />
           </div>
         </section>
 
@@ -900,81 +915,11 @@ export default function DissertationPage() {
         </div>
       </footer>
 
-      {/* PROJECT MANUSCRIPT MODAL */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-inkDark/60 backdrop-blur-sm">
-          <div className="space-panel bg-paperBg max-w-3xl w-full p-8 space-y-6 max-h-[90vh] overflow-y-auto border-crimson/40">
-            <div className="flex items-center justify-between border-b border-paperBorder pb-4">
-              <div>
-                <span className="font-mono text-[10px] text-crimson uppercase tracking-[0.2em] font-bold">
-                  MANUSCRIPT DOSSIER: {selectedProject.id.toUpperCase()}
-                </span>
-                <h3 className="font-display text-2xl font-bold text-inkDark mt-1">{selectedProject.title}</h3>
-              </div>
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="font-mono text-xs px-3 py-1.5 border border-paperBorder bg-paperSheet text-inkDark hover:bg-crimson hover:text-white transition-colors"
-              >
-                CLOSE ✕
-              </button>
-            </div>
-
-            {selectedProject.image && (
-              <div className="rounded-sm overflow-hidden border border-paperBorder max-h-72">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
-              </div>
-            )}
-
-            <div className="space-y-4">
-              <div>
-                <span className="font-mono text-[10px] uppercase text-crimson font-bold block mb-1">SPECIFICATIONS & BENCHMARKS</span>
-                <p className="font-mono text-xs text-inkDark bg-paperSheet border border-paperBorder p-3">
-                  {selectedProject.sub}
-                </p>
-              </div>
-
-              <div>
-                <span className="font-mono text-[10px] uppercase text-crimson font-bold block mb-1">ABSTRACT & ABSTRACT DETAIL</span>
-                <p className="font-sans text-sm text-inkMuted leading-relaxed border-l-2 border-crimson pl-4">
-                  {selectedProject.description}
-                </p>
-              </div>
-
-              <div>
-                <span className="font-mono text-[10px] uppercase text-crimson font-bold block mb-1">TECHNOLOGY STACK</span>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {selectedProject.tech.map((t) => (
-                    <span key={t} className="font-mono text-xs border border-paperBorder bg-paperSheet px-3 py-1 text-inkDark">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-paperBorder flex justify-end gap-3 font-mono text-xs">
-              <a
-                href={selectedProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost text-xs px-5 py-2"
-              >
-                VIEW SOURCE ON GITHUB ↗
-              </a>
-              {selectedProject.live && (
-                <a
-                  href={selectedProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-red text-xs px-5 py-2"
-                >
-                  LAUNCH LIVE DEMO ↗
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* INTERACTIVE MAC DEVICE PREVIEW MODAL */}
+      <MacProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }

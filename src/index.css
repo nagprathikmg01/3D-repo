@@ -16,6 +16,17 @@
   --glow: rgba(158, 71, 51, 0.12);
 }
 
+[data-theme="dark"] {
+  --bg-primary: #121110;
+  --bg-surface: #1C1A18;
+  --bg-card: #24211E;
+  --border: #3A3632;
+  --primary: #D8634B;
+  --text-primary: #F4F2EE;
+  --text-muted: #A39F99;
+  --glow: rgba(216, 99, 75, 0.2);
+}
+
 @layer base {
   html {
     background: var(--bg-primary);
